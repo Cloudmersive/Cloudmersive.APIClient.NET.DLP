@@ -1,0 +1,2467 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "dlpapi",
+    "description": "Easily and directly scan and detect sensitive data (PII) in input text.",
+    "version": "v1"
+  },
+  "paths": {
+    "/dlp/detect/text": {
+      "post": {
+        "tags": [
+          "Detect"
+        ],
+        "summary": "Detect User Data in Input Text",
+        "description": "Detects configurable types of user data in an input text string using Advanced AI.",
+        "operationId": "DetectText",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpDetectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpDetectionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/detect/text/advanced": {
+      "post": {
+        "tags": [
+          "Detect"
+        ],
+        "summary": "Detect User Data in Input Text (Advanced)",
+        "description": "Detects 29 configurable types of user data including health-related PHI in an input text string using Advanced AI.",
+        "operationId": "DetectTextAdvanced",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedDetectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedDetectionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/detect/document/advanced": {
+      "post": {
+        "tags": [
+          "Detect"
+        ],
+        "summary": "Detect User Data in Document Image (Advanced)",
+        "description": "Detects 29 configurable types of user data including health-related PHI in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.",
+        "operationId": "DetectDocumentAdvanced",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedDocumentDetectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedDetectionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/detect/document": {
+      "post": {
+        "tags": [
+          "Detect"
+        ],
+        "summary": "Detect User Data in Document Image",
+        "description": "Detects configurable types of user data in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.",
+        "operationId": "DetectDocument",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpDocumentDetectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpDetectionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/redact/text": {
+      "post": {
+        "tags": [
+          "Redact"
+        ],
+        "summary": "Redact User Data in Input Text",
+        "description": "Detects and redacts configurable types of user data in an input text string using Advanced AI. First detects PII, then redacts disallowed types by either deleting them or replacing them with asterisks.",
+        "operationId": "RedactText",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpRedactionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpRedactionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/redact/text/advanced": {
+      "post": {
+        "tags": [
+          "Redact"
+        ],
+        "summary": "Redact User Data in Input Text (Advanced)",
+        "description": "Detects and redacts 34 configurable types of user data including health-related PHI in an input text string using Advanced AI. First detects PII, then redacts disallowed types by either deleting them or replacing them with asterisks.",
+        "operationId": "RedactTextAdvanced",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedRedactionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedRedactionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/redact/document": {
+      "post": {
+        "tags": [
+          "Redact"
+        ],
+        "summary": "Redact User Data in Document",
+        "description": "Detects and redacts configurable types of user data in a document (PDF, DOCX, PNG, JPG) using Advanced AI. Rasterizes document pages, detects PII regions using a grid-overlay approach, blurs those regions, and returns a rasterized PDF.",
+        "operationId": "RedactDocument",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpDocumentRedactionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpDocumentRedactionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/redact/document/advanced": {
+      "post": {
+        "tags": [
+          "Redact"
+        ],
+        "summary": "Redact User Data in Document (Advanced)",
+        "description": "Detects and redacts 35 configurable types of user data including health-related PHI in a document (PDF, DOCX, PNG, JPG) using Advanced AI. Rasterizes document pages, detects PII regions using a row-overlay approach, redacts those regions, and returns a rasterized PDF.",
+        "operationId": "RedactDocumentAdvanced",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedDocumentRedactionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedDocumentRedactionResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DlpAdvancedDetectionRequest": {
+      "description": "Request object for advanced DLP text detection with 29 PII detection types including health-related data.",
+      "type": "object",
+      "properties": {
+        "InputText": {
+          "description": "Text to scan for PII and sensitive data.",
+          "type": "string",
+          "example": "Hello, world!"
+        },
+        "AllowEmailAddress": {
+          "description": "Set to true to allow email addresses in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPhoneNumber": {
+          "description": "Set to true to allow phone numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowStreetAddress": {
+          "description": "Set to true to allow street addresses in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPersonName": {
+          "description": "Set to true to allow person names in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBirthDate": {
+          "description": "Set to true to allow birth dates in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPassportNumber": {
+          "description": "Set to true to allow passport numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDriversLicense": {
+          "description": "Set to true to allow drivers license numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSocialSecurityNumber": {
+          "description": "Set to true to allow social security numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowTaxpayerID": {
+          "description": "Set to true to allow taxpayer IDs in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardNumber": {
+          "description": "Set to true to allow credit card numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardExpirationDate": {
+          "description": "Set to true to allow credit card expiration dates in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardVerificationCode": {
+          "description": "Set to true to allow credit card verification codes in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBankAccountNumber": {
+          "description": "Set to true to allow bank account numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIBAN": {
+          "description": "Set to true to allow IBANs in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceNumber": {
+          "description": "Set to true to allow health insurance numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBearerToken": {
+          "description": "Set to true to allow bearer tokens in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHttpCookie": {
+          "description": "Set to true to allow HTTP cookies in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPrivateKeys": {
+          "description": "Set to true to allow private keys in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCredentials": {
+          "description": "Set to true to allow credentials (usernames/passwords) in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeepWebUrls": {
+          "description": "Set to true to allow deep web URLs (.onion) in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSourceCode": {
+          "description": "Set to true to allow source code in the input text and not flag it as sensitive data.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIpAddress": {
+          "description": "Set to true to allow IP addresses in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMacAddress": {
+          "description": "Set to true to allow MAC addresses in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceMemberID": {
+          "description": "Set to true to allow health insurance member IDs in the input text and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInjuryOrDisease": {
+          "description": "Set to true to allow references to injuries or diseases in the input text and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthTypeOfTreatment": {
+          "description": "Set to true to allow references to types of medical treatment in the input text and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthDateAndTimeOfTreatment": {
+          "description": "Set to true to allow dates and times of medical treatment in the input text and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthPlanBeneficiaryNumber": {
+          "description": "Set to true to allow health plan beneficiary numbers in the input text and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthPaymentsMadeForTreatment": {
+          "description": "Set to true to allow payments made for medical treatment in the input text and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowVehicleID": {
+          "description": "Set to true to allow vehicle identifiers (e.g. license plates, VINs) in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeviceID": {
+          "description": "Set to true to allow device identifiers (e.g. serial numbers, IMEIs, MAC-level device IDs) in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowNamesOfRelatives": {
+          "description": "Set to true to allow names of relatives in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthUniversalRecordLocator": {
+          "description": "Set to true to allow health universal record locators (URLs) in the input text and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBiometrics": {
+          "description": "Set to true to allow biometric data references (e.g. fingerprints, retinal scans, voiceprints) in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "ProvideAnalysisRationale": {
+          "description": "Set to true to include a natural language rationale explaining why each detection conclusion was formed.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAdvancedDetectionResponse": {
+      "description": "Response object for advanced DLP text detection with 29 PII detection types including health-related data.",
+      "type": "object",
+      "properties": {
+        "CleanResult": {
+          "description": "True if no disallowed PII or sensitive data types were detected in the input text; false if any disallowed type was found.",
+          "type": "boolean"
+        },
+        "ContainsEmailAddress": {
+          "description": "True if the input text contains email addresses.",
+          "type": "boolean"
+        },
+        "ContainsPhoneNumber": {
+          "description": "True if the input text contains phone numbers.",
+          "type": "boolean"
+        },
+        "ContainsStreetAddress": {
+          "description": "True if the input text contains street addresses.",
+          "type": "boolean"
+        },
+        "ContainsPersonName": {
+          "description": "True if the input text contains person names.",
+          "type": "boolean"
+        },
+        "ContainsBirthDate": {
+          "description": "True if the input text contains birth dates.",
+          "type": "boolean"
+        },
+        "ContainsPassportNumber": {
+          "description": "True if the input text contains passport numbers.",
+          "type": "boolean"
+        },
+        "ContainsDriversLicense": {
+          "description": "True if the input text contains drivers license numbers.",
+          "type": "boolean"
+        },
+        "ContainsSocialSecurityNumber": {
+          "description": "True if the input text contains social security numbers.",
+          "type": "boolean"
+        },
+        "ContainsTaxpayerID": {
+          "description": "True if the input text contains taxpayer IDs.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardNumber": {
+          "description": "True if the input text contains credit card numbers.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardExpirationDate": {
+          "description": "True if the input text contains credit card expiration dates.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardVerificationCode": {
+          "description": "True if the input text contains credit card verification codes.",
+          "type": "boolean"
+        },
+        "ContainsBankAccountNumber": {
+          "description": "True if the input text contains bank account numbers.",
+          "type": "boolean"
+        },
+        "ContainsIBAN": {
+          "description": "True if the input text contains IBANs.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceNumber": {
+          "description": "True if the input text contains health insurance numbers.",
+          "type": "boolean"
+        },
+        "ContainsBearerToken": {
+          "description": "True if the input text contains bearer tokens.",
+          "type": "boolean"
+        },
+        "ContainsHttpCookie": {
+          "description": "True if the input text contains HTTP cookies.",
+          "type": "boolean"
+        },
+        "ContainsPrivateKeys": {
+          "description": "True if the input text contains private keys.",
+          "type": "boolean"
+        },
+        "ContainsCredentials": {
+          "description": "True if the input text contains credentials (usernames/passwords).",
+          "type": "boolean"
+        },
+        "ContainsDeepWebUrls": {
+          "description": "True if the input text contains deep web URLs (.onion).",
+          "type": "boolean"
+        },
+        "ContainsSourceCode": {
+          "description": "True if the input text contains source code.",
+          "type": "boolean"
+        },
+        "ContainsIpAddress": {
+          "description": "True if the input text contains IP addresses.",
+          "type": "boolean"
+        },
+        "ContainsMacAddress": {
+          "description": "True if the input text contains MAC addresses.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceMemberID": {
+          "description": "True if the input text contains health insurance member IDs.",
+          "type": "boolean"
+        },
+        "ContainsHealthInjuryOrDisease": {
+          "description": "True if the input text contains references to injuries or diseases.",
+          "type": "boolean"
+        },
+        "ContainsHealthTypeOfTreatment": {
+          "description": "True if the input text contains references to types of medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsHealthDateAndTimeOfTreatment": {
+          "description": "True if the input text contains dates and times of medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsHealthPlanBeneficiaryNumber": {
+          "description": "True if the input text contains health plan beneficiary numbers.",
+          "type": "boolean"
+        },
+        "ContainsHealthPaymentsMadeForTreatment": {
+          "description": "True if the input text contains payments made for medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsFaces": {
+          "description": "True if the document contains identifiable human faces.",
+          "type": "boolean"
+        },
+        "ContainsVehicleID": {
+          "description": "True if the input contains vehicle identifiers (e.g. license plates, VINs).",
+          "type": "boolean"
+        },
+        "ContainsDeviceID": {
+          "description": "True if the input contains device identifiers (e.g. serial numbers, IMEIs, MAC-level device IDs).",
+          "type": "boolean"
+        },
+        "ContainsNamesOfRelatives": {
+          "description": "True if the input contains names of relatives.",
+          "type": "boolean"
+        },
+        "ContainsHealthUniversalRecordLocator": {
+          "description": "True if the input contains health universal record locators (URLs).",
+          "type": "boolean"
+        },
+        "ContainsBiometrics": {
+          "description": "True if the input contains biometric data references (e.g. fingerprints, retinal scans, voiceprints).",
+          "type": "boolean"
+        },
+        "AnalysisRationale": {
+          "description": "Rationale for why the conclusion was formed. Only populated when ProvideAnalysisRationale is set to true in the request.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAdvancedDocumentDetectionRequest": {
+      "description": "Request object for advanced DLP document detection with 29 PII detection types including health-related data.",
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and sensitive data.",
+          "type": "string"
+        },
+        "FileName": {
+          "description": "Optional. Name of the input file including extension, used for format detection. If not provided, format is detected from file contents.",
+          "type": "string",
+          "example": "input.pdf"
+        },
+        "RecognitionMode": {
+          "description": "Optional. Recognition mode for image processing. Options: null (default), \"Fast\", \"FastPlus\", \"FastMini\".",
+          "type": "string",
+          "example": ""
+        },
+        "AllowEmailAddress": {
+          "description": "Set to true to allow email addresses in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPhoneNumber": {
+          "description": "Set to true to allow phone numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowStreetAddress": {
+          "description": "Set to true to allow street addresses in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPersonName": {
+          "description": "Set to true to allow person names in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBirthDate": {
+          "description": "Set to true to allow birth dates in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPassportNumber": {
+          "description": "Set to true to allow passport numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDriversLicense": {
+          "description": "Set to true to allow drivers license numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSocialSecurityNumber": {
+          "description": "Set to true to allow social security numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowTaxpayerID": {
+          "description": "Set to true to allow taxpayer IDs in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardNumber": {
+          "description": "Set to true to allow credit card numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardExpirationDate": {
+          "description": "Set to true to allow credit card expiration dates in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardVerificationCode": {
+          "description": "Set to true to allow credit card verification codes in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBankAccountNumber": {
+          "description": "Set to true to allow bank account numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIBAN": {
+          "description": "Set to true to allow IBANs in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceNumber": {
+          "description": "Set to true to allow health insurance numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBearerToken": {
+          "description": "Set to true to allow bearer tokens in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHttpCookie": {
+          "description": "Set to true to allow HTTP cookies in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPrivateKeys": {
+          "description": "Set to true to allow private keys in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCredentials": {
+          "description": "Set to true to allow credentials (usernames/passwords) in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeepWebUrls": {
+          "description": "Set to true to allow deep web URLs (.onion) in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSourceCode": {
+          "description": "Set to true to allow source code in the document and not flag it as sensitive data.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIpAddress": {
+          "description": "Set to true to allow IP addresses in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMacAddress": {
+          "description": "Set to true to allow MAC addresses in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceMemberID": {
+          "description": "Set to true to allow health insurance member IDs in the document and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInjuryOrDisease": {
+          "description": "Set to true to allow references to injuries or diseases in the document and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthTypeOfTreatment": {
+          "description": "Set to true to allow references to types of medical treatment in the document and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthDateAndTimeOfTreatment": {
+          "description": "Set to true to allow dates and times of medical treatment in the document and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthPlanBeneficiaryNumber": {
+          "description": "Set to true to allow health plan beneficiary numbers in the document and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthPaymentsMadeForTreatment": {
+          "description": "Set to true to allow payments made for medical treatment in the document and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowFaces": {
+          "description": "Set to true to allow identifiable human faces in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowVehicleID": {
+          "description": "Set to true to allow vehicle identifiers (e.g. license plates, VINs) in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeviceID": {
+          "description": "Set to true to allow device identifiers (e.g. serial numbers, IMEIs, MAC-level device IDs) in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowNamesOfRelatives": {
+          "description": "Set to true to allow names of relatives in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthUniversalRecordLocator": {
+          "description": "Set to true to allow health universal record locators (URLs) in the document and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBiometrics": {
+          "description": "Set to true to allow biometric data references (e.g. fingerprints, retinal scans, voiceprints) in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "ProvideAnalysisRationale": {
+          "description": "Set to true to include a natural language rationale explaining why each detection conclusion was formed.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAdvancedDocumentRedactionRequest": {
+      "description": "Request object for advanced DLP document redaction with 35 PII detection types including health-related data.",
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and redact.",
+          "type": "string"
+        },
+        "FileName": {
+          "description": "Optional. Name of the input file including extension, used for format detection. If not provided, format is detected from file contents.",
+          "type": "string",
+          "example": "input.pdf"
+        },
+        "RecognitionMode": {
+          "description": "Optional. Recognition mode for image processing. Options: null (default), \"Fast\", \"FastPlus\", \"FastMini\".",
+          "type": "string",
+          "example": ""
+        },
+        "RedactionMode": {
+          "description": "Redaction mode for PII regions. Options: \"BlackOut\" (default) draws black rectangles over PII rows, \"Blur\" applies Gaussian blur to PII rows, \"BlackOutEntirePage\" blacks out entire dirty pages, \"BlurEntirePage\" blurs entire dirty pages.",
+          "type": "string",
+          "example": "BlackOut"
+        },
+        "AllowEmailAddress": {
+          "description": "Set to true to allow email addresses in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPhoneNumber": {
+          "description": "Set to true to allow phone numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowStreetAddress": {
+          "description": "Set to true to allow street addresses in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPersonName": {
+          "description": "Set to true to allow person names in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBirthDate": {
+          "description": "Set to true to allow birth dates in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPassportNumber": {
+          "description": "Set to true to allow passport numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDriversLicense": {
+          "description": "Set to true to allow drivers license numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSocialSecurityNumber": {
+          "description": "Set to true to allow social security numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowTaxpayerID": {
+          "description": "Set to true to allow taxpayer IDs in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardNumber": {
+          "description": "Set to true to allow credit card numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardExpirationDate": {
+          "description": "Set to true to allow credit card expiration dates in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardVerificationCode": {
+          "description": "Set to true to allow credit card verification codes in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBankAccountNumber": {
+          "description": "Set to true to allow bank account numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIBAN": {
+          "description": "Set to true to allow IBANs in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceNumber": {
+          "description": "Set to true to allow health insurance numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBearerToken": {
+          "description": "Set to true to allow bearer tokens in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHttpCookie": {
+          "description": "Set to true to allow HTTP cookies in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPrivateKeys": {
+          "description": "Set to true to allow private keys in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCredentials": {
+          "description": "Set to true to allow credentials (usernames/passwords) in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeepWebUrls": {
+          "description": "Set to true to allow deep web URLs (.onion) in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSourceCode": {
+          "description": "Set to true to allow source code in the document and not redact it.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIpAddress": {
+          "description": "Set to true to allow IP addresses in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMacAddress": {
+          "description": "Set to true to allow MAC addresses in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceMemberID": {
+          "description": "Set to true to allow health insurance member IDs in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInjuryOrDisease": {
+          "description": "Set to true to allow references to injuries or diseases in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthTypeOfTreatment": {
+          "description": "Set to true to allow references to types of medical treatment in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthDateAndTimeOfTreatment": {
+          "description": "Set to true to allow dates and times of medical treatment in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthPlanBeneficiaryNumber": {
+          "description": "Set to true to allow health plan beneficiary numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthPaymentsMadeForTreatment": {
+          "description": "Set to true to allow payments made for medical treatment in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowFaces": {
+          "description": "Set to true to allow identifiable human faces in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowVehicleID": {
+          "description": "Set to true to allow vehicle identifiers (e.g. license plates, VINs) in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeviceID": {
+          "description": "Set to true to allow device identifiers (e.g. serial numbers, IMEIs, MAC-level device IDs) in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowNamesOfRelatives": {
+          "description": "Set to true to allow names of relatives in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthUniversalRecordLocator": {
+          "description": "Set to true to allow health universal record locators (URLs) in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBiometrics": {
+          "description": "Set to true to allow biometric data references (e.g. fingerprints, retinal scans, voiceprints) in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "ProvideAnalysisRationale": {
+          "description": "Set to true to include a natural language rationale explaining why each detection conclusion was formed.",
+          "type": "boolean",
+          "example": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAdvancedDocumentRedactionResponse": {
+      "description": "Response object for advanced DLP document redaction with 35 PII detection results, redacted document, and optional rationale.",
+      "type": "object",
+      "properties": {
+        "RedactedDocument": {
+          "format": "byte",
+          "description": "The redacted document as a rasterized PDF with PII regions redacted, or the original file if no disallowed PII was found.",
+          "type": "string"
+        },
+        "CleanResult": {
+          "description": "True if no disallowed PII or sensitive data types were detected; false if any disallowed type was found and redacted.",
+          "type": "boolean"
+        },
+        "ContainsEmailAddress": {
+          "description": "True if the document contains email addresses.",
+          "type": "boolean"
+        },
+        "ContainsPhoneNumber": {
+          "description": "True if the document contains phone numbers.",
+          "type": "boolean"
+        },
+        "ContainsStreetAddress": {
+          "description": "True if the document contains street addresses.",
+          "type": "boolean"
+        },
+        "ContainsPersonName": {
+          "description": "True if the document contains person names.",
+          "type": "boolean"
+        },
+        "ContainsBirthDate": {
+          "description": "True if the document contains birth dates.",
+          "type": "boolean"
+        },
+        "ContainsPassportNumber": {
+          "description": "True if the document contains passport numbers.",
+          "type": "boolean"
+        },
+        "ContainsDriversLicense": {
+          "description": "True if the document contains drivers license numbers.",
+          "type": "boolean"
+        },
+        "ContainsSocialSecurityNumber": {
+          "description": "True if the document contains social security numbers.",
+          "type": "boolean"
+        },
+        "ContainsTaxpayerID": {
+          "description": "True if the document contains taxpayer IDs.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardNumber": {
+          "description": "True if the document contains credit card numbers.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardExpirationDate": {
+          "description": "True if the document contains credit card expiration dates.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardVerificationCode": {
+          "description": "True if the document contains credit card verification codes.",
+          "type": "boolean"
+        },
+        "ContainsBankAccountNumber": {
+          "description": "True if the document contains bank account numbers.",
+          "type": "boolean"
+        },
+        "ContainsIBAN": {
+          "description": "True if the document contains IBANs.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceNumber": {
+          "description": "True if the document contains health insurance numbers.",
+          "type": "boolean"
+        },
+        "ContainsBearerToken": {
+          "description": "True if the document contains bearer tokens.",
+          "type": "boolean"
+        },
+        "ContainsHttpCookie": {
+          "description": "True if the document contains HTTP cookies.",
+          "type": "boolean"
+        },
+        "ContainsPrivateKeys": {
+          "description": "True if the document contains private keys.",
+          "type": "boolean"
+        },
+        "ContainsCredentials": {
+          "description": "True if the document contains credentials (usernames/passwords).",
+          "type": "boolean"
+        },
+        "ContainsDeepWebUrls": {
+          "description": "True if the document contains deep web URLs (.onion).",
+          "type": "boolean"
+        },
+        "ContainsSourceCode": {
+          "description": "True if the document contains source code.",
+          "type": "boolean"
+        },
+        "ContainsIpAddress": {
+          "description": "True if the document contains IP addresses.",
+          "type": "boolean"
+        },
+        "ContainsMacAddress": {
+          "description": "True if the document contains MAC addresses.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceMemberID": {
+          "description": "True if the document contains health insurance member IDs.",
+          "type": "boolean"
+        },
+        "ContainsHealthInjuryOrDisease": {
+          "description": "True if the document contains references to injuries or diseases.",
+          "type": "boolean"
+        },
+        "ContainsHealthTypeOfTreatment": {
+          "description": "True if the document contains references to types of medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsHealthDateAndTimeOfTreatment": {
+          "description": "True if the document contains dates and times of medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsHealthPlanBeneficiaryNumber": {
+          "description": "True if the document contains health plan beneficiary numbers.",
+          "type": "boolean"
+        },
+        "ContainsHealthPaymentsMadeForTreatment": {
+          "description": "True if the document contains payments made for medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsFaces": {
+          "description": "True if the document contains identifiable human faces.",
+          "type": "boolean"
+        },
+        "ContainsVehicleID": {
+          "description": "True if the document contains vehicle identifiers (e.g. license plates, VINs).",
+          "type": "boolean"
+        },
+        "ContainsDeviceID": {
+          "description": "True if the document contains device identifiers (e.g. serial numbers, IMEIs, MAC-level device IDs).",
+          "type": "boolean"
+        },
+        "ContainsNamesOfRelatives": {
+          "description": "True if the document contains names of relatives.",
+          "type": "boolean"
+        },
+        "ContainsHealthUniversalRecordLocator": {
+          "description": "True if the document contains health universal record locators (URLs).",
+          "type": "boolean"
+        },
+        "ContainsBiometrics": {
+          "description": "True if the document contains biometric data references (e.g. fingerprints, retinal scans, voiceprints).",
+          "type": "boolean"
+        },
+        "PagesRedacted": {
+          "description": "List of pages that were redacted (had PII regions redacted).",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RedactedPageInfo"
+          }
+        },
+        "AnalysisRationale": {
+          "description": "Rationale for why the conclusion was formed. Only populated when ProvideAnalysisRationale is set to true in the request.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAdvancedRedactionRequest": {
+      "description": "Request object for advanced DLP text redaction with 34 PII detection types including health-related data and configurable redaction mode.",
+      "type": "object",
+      "properties": {
+        "InputText": {
+          "description": "Text to scan for PII and redact sensitive data from.",
+          "type": "string",
+          "example": "Hello, world!"
+        },
+        "AllowEmailAddress": {
+          "description": "Set to true to allow email addresses in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPhoneNumber": {
+          "description": "Set to true to allow phone numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowStreetAddress": {
+          "description": "Set to true to allow street addresses in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPersonName": {
+          "description": "Set to true to allow person names in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBirthDate": {
+          "description": "Set to true to allow birth dates in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPassportNumber": {
+          "description": "Set to true to allow passport numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDriversLicense": {
+          "description": "Set to true to allow drivers license numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSocialSecurityNumber": {
+          "description": "Set to true to allow social security numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowTaxpayerID": {
+          "description": "Set to true to allow taxpayer IDs in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardNumber": {
+          "description": "Set to true to allow credit card numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardExpirationDate": {
+          "description": "Set to true to allow credit card expiration dates in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardVerificationCode": {
+          "description": "Set to true to allow credit card verification codes in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBankAccountNumber": {
+          "description": "Set to true to allow bank account numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIBAN": {
+          "description": "Set to true to allow IBANs in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceNumber": {
+          "description": "Set to true to allow health insurance numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBearerToken": {
+          "description": "Set to true to allow bearer tokens in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHttpCookie": {
+          "description": "Set to true to allow HTTP cookies in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPrivateKeys": {
+          "description": "Set to true to allow private keys in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCredentials": {
+          "description": "Set to true to allow credentials (usernames/passwords) in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeepWebUrls": {
+          "description": "Set to true to allow deep web URLs (.onion) in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSourceCode": {
+          "description": "Set to true to allow source code in the input text and not redact it.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIpAddress": {
+          "description": "Set to true to allow IP addresses in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMacAddress": {
+          "description": "Set to true to allow MAC addresses in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceMemberID": {
+          "description": "Set to true to allow health insurance member IDs in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInjuryOrDisease": {
+          "description": "Set to true to allow references to injuries or diseases in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthTypeOfTreatment": {
+          "description": "Set to true to allow references to types of medical treatment in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthDateAndTimeOfTreatment": {
+          "description": "Set to true to allow dates and times of medical treatment in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthPlanBeneficiaryNumber": {
+          "description": "Set to true to allow health plan beneficiary numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthPaymentsMadeForTreatment": {
+          "description": "Set to true to allow payments made for medical treatment in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowVehicleID": {
+          "description": "Set to true to allow vehicle identifiers (e.g. license plates, VINs) in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeviceID": {
+          "description": "Set to true to allow device identifiers (e.g. serial numbers, IMEIs, MAC-level device IDs) in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowNamesOfRelatives": {
+          "description": "Set to true to allow names of relatives in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthUniversalRecordLocator": {
+          "description": "Set to true to allow health universal record locators (URLs) in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBiometrics": {
+          "description": "Set to true to allow biometric data references (e.g. fingerprints, retinal scans, voiceprints) in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "RedactionMode": {
+          "description": "Redaction mode: \"Delete\" to remove PII entirely, or \"ReplaceWithAsterisk\" to replace PII characters with asterisks (*).",
+          "type": "string",
+          "example": "ReplaceWithAsterisk"
+        },
+        "ProvideAnalysisRationale": {
+          "description": "Set to true to include a natural language rationale explaining why each detection conclusion was formed.",
+          "type": "boolean",
+          "example": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAdvancedRedactionResponse": {
+      "description": "Response object for advanced DLP text redaction with 34 PII detection results, redacted text, and optional rationale.",
+      "type": "object",
+      "properties": {
+        "RedactedText": {
+          "description": "The redacted text with PII removed or replaced, or the original text if no disallowed PII was found.",
+          "type": "string"
+        },
+        "CleanResult": {
+          "description": "True if no disallowed PII or sensitive data types were detected; false if any disallowed type was found and redacted.",
+          "type": "boolean"
+        },
+        "ContainsEmailAddress": {
+          "description": "True if the input contains email addresses.",
+          "type": "boolean"
+        },
+        "ContainsPhoneNumber": {
+          "description": "True if the input contains phone numbers.",
+          "type": "boolean"
+        },
+        "ContainsStreetAddress": {
+          "description": "True if the input contains street addresses.",
+          "type": "boolean"
+        },
+        "ContainsPersonName": {
+          "description": "True if the input contains person names.",
+          "type": "boolean"
+        },
+        "ContainsBirthDate": {
+          "description": "True if the input contains birth dates.",
+          "type": "boolean"
+        },
+        "ContainsPassportNumber": {
+          "description": "True if the input contains passport numbers.",
+          "type": "boolean"
+        },
+        "ContainsDriversLicense": {
+          "description": "True if the input contains drivers license numbers.",
+          "type": "boolean"
+        },
+        "ContainsSocialSecurityNumber": {
+          "description": "True if the input contains social security numbers.",
+          "type": "boolean"
+        },
+        "ContainsTaxpayerID": {
+          "description": "True if the input contains taxpayer IDs.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardNumber": {
+          "description": "True if the input contains credit card numbers.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardExpirationDate": {
+          "description": "True if the input contains credit card expiration dates.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardVerificationCode": {
+          "description": "True if the input contains credit card verification codes.",
+          "type": "boolean"
+        },
+        "ContainsBankAccountNumber": {
+          "description": "True if the input contains bank account numbers.",
+          "type": "boolean"
+        },
+        "ContainsIBAN": {
+          "description": "True if the input contains IBANs.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceNumber": {
+          "description": "True if the input contains health insurance numbers.",
+          "type": "boolean"
+        },
+        "ContainsBearerToken": {
+          "description": "True if the input contains bearer tokens.",
+          "type": "boolean"
+        },
+        "ContainsHttpCookie": {
+          "description": "True if the input contains HTTP cookies.",
+          "type": "boolean"
+        },
+        "ContainsPrivateKeys": {
+          "description": "True if the input contains private keys.",
+          "type": "boolean"
+        },
+        "ContainsCredentials": {
+          "description": "True if the input contains credentials (usernames/passwords).",
+          "type": "boolean"
+        },
+        "ContainsDeepWebUrls": {
+          "description": "True if the input contains deep web URLs (.onion).",
+          "type": "boolean"
+        },
+        "ContainsSourceCode": {
+          "description": "True if the input contains source code.",
+          "type": "boolean"
+        },
+        "ContainsIpAddress": {
+          "description": "True if the input contains IP addresses.",
+          "type": "boolean"
+        },
+        "ContainsMacAddress": {
+          "description": "True if the input contains MAC addresses.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceMemberID": {
+          "description": "True if the input contains health insurance member IDs.",
+          "type": "boolean"
+        },
+        "ContainsHealthInjuryOrDisease": {
+          "description": "True if the input contains references to injuries or diseases.",
+          "type": "boolean"
+        },
+        "ContainsHealthTypeOfTreatment": {
+          "description": "True if the input contains references to types of medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsHealthDateAndTimeOfTreatment": {
+          "description": "True if the input contains dates and times of medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsHealthPlanBeneficiaryNumber": {
+          "description": "True if the input contains health plan beneficiary numbers.",
+          "type": "boolean"
+        },
+        "ContainsHealthPaymentsMadeForTreatment": {
+          "description": "True if the input contains payments made for medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsVehicleID": {
+          "description": "True if the input contains vehicle identifiers (e.g. license plates, VINs).",
+          "type": "boolean"
+        },
+        "ContainsDeviceID": {
+          "description": "True if the input contains device identifiers (e.g. serial numbers, IMEIs, MAC-level device IDs).",
+          "type": "boolean"
+        },
+        "ContainsNamesOfRelatives": {
+          "description": "True if the input contains names of relatives.",
+          "type": "boolean"
+        },
+        "ContainsHealthUniversalRecordLocator": {
+          "description": "True if the input contains health universal record locators (URLs).",
+          "type": "boolean"
+        },
+        "ContainsBiometrics": {
+          "description": "True if the input contains biometric data references (e.g. fingerprints, retinal scans, voiceprints).",
+          "type": "boolean"
+        },
+        "AnalysisRationale": {
+          "description": "Rationale for why the conclusion was formed. Only populated when ProvideAnalysisRationale is set to true in the request.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpDetectionRequest": {
+      "description": "Request object for DLP text detection with 23 PII detection types.",
+      "type": "object",
+      "properties": {
+        "InputText": {
+          "description": "Text to scan for PII and sensitive data.",
+          "type": "string",
+          "example": "Hello, world!"
+        },
+        "AllowEmailAddress": {
+          "description": "Set to true to allow email addresses in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPhoneNumber": {
+          "description": "Set to true to allow phone numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowStreetAddress": {
+          "description": "Set to true to allow street addresses in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPersonName": {
+          "description": "Set to true to allow person names in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBirthDate": {
+          "description": "Set to true to allow birth dates in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPassportNumber": {
+          "description": "Set to true to allow passport numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDriversLicense": {
+          "description": "Set to true to allow drivers license numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSocialSecurityNumber": {
+          "description": "Set to true to allow social security numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowTaxpayerID": {
+          "description": "Set to true to allow taxpayer IDs in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardNumber": {
+          "description": "Set to true to allow credit card numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardExpirationDate": {
+          "description": "Set to true to allow credit card expiration dates in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardVerificationCode": {
+          "description": "Set to true to allow credit card verification codes in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBankAccountNumber": {
+          "description": "Set to true to allow bank account numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIBAN": {
+          "description": "Set to true to allow IBANs in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceNumber": {
+          "description": "Set to true to allow health insurance numbers in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBearerToken": {
+          "description": "Set to true to allow bearer tokens in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHttpCookie": {
+          "description": "Set to true to allow HTTP cookies in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPrivateKeys": {
+          "description": "Set to true to allow private keys in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCredentials": {
+          "description": "Set to true to allow credentials (usernames/passwords) in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeepWebUrls": {
+          "description": "Set to true to allow deep web URLs (.onion) in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSourceCode": {
+          "description": "Set to true to allow source code in the input text and not flag it as sensitive data.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIpAddress": {
+          "description": "Set to true to allow IP addresses in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMacAddress": {
+          "description": "Set to true to allow MAC addresses in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpDetectionResponse": {
+      "description": "Response object for DLP text and document detection with 23 PII detection types.",
+      "type": "object",
+      "properties": {
+        "CleanResult": {
+          "description": "True if no disallowed PII or sensitive data types were detected; false if any disallowed type was found.",
+          "type": "boolean"
+        },
+        "ContainsEmailAddress": {
+          "description": "True if the input contains email addresses.",
+          "type": "boolean"
+        },
+        "ContainsPhoneNumber": {
+          "description": "True if the input contains phone numbers.",
+          "type": "boolean"
+        },
+        "ContainsStreetAddress": {
+          "description": "True if the input contains street addresses.",
+          "type": "boolean"
+        },
+        "ContainsPersonName": {
+          "description": "True if the input contains person names.",
+          "type": "boolean"
+        },
+        "ContainsBirthDate": {
+          "description": "True if the input contains birth dates.",
+          "type": "boolean"
+        },
+        "ContainsPassportNumber": {
+          "description": "True if the input contains passport numbers.",
+          "type": "boolean"
+        },
+        "ContainsDriversLicense": {
+          "description": "True if the input contains drivers license numbers.",
+          "type": "boolean"
+        },
+        "ContainsSocialSecurityNumber": {
+          "description": "True if the input contains social security numbers.",
+          "type": "boolean"
+        },
+        "ContainsTaxpayerID": {
+          "description": "True if the input contains taxpayer IDs.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardNumber": {
+          "description": "True if the input contains credit card numbers.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardExpirationDate": {
+          "description": "True if the input contains credit card expiration dates.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardVerificationCode": {
+          "description": "True if the input contains credit card verification codes.",
+          "type": "boolean"
+        },
+        "ContainsBankAccountNumber": {
+          "description": "True if the input contains bank account numbers.",
+          "type": "boolean"
+        },
+        "ContainsIBAN": {
+          "description": "True if the input contains IBANs.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceNumber": {
+          "description": "True if the input contains health insurance numbers.",
+          "type": "boolean"
+        },
+        "ContainsBearerToken": {
+          "description": "True if the input contains bearer tokens.",
+          "type": "boolean"
+        },
+        "ContainsHttpCookie": {
+          "description": "True if the input contains HTTP cookies.",
+          "type": "boolean"
+        },
+        "ContainsPrivateKeys": {
+          "description": "True if the input contains private keys.",
+          "type": "boolean"
+        },
+        "ContainsCredentials": {
+          "description": "True if the input contains credentials (usernames/passwords).",
+          "type": "boolean"
+        },
+        "ContainsDeepWebUrls": {
+          "description": "True if the input contains deep web URLs (.onion).",
+          "type": "boolean"
+        },
+        "ContainsSourceCode": {
+          "description": "True if the input contains source code.",
+          "type": "boolean"
+        },
+        "ContainsIpAddress": {
+          "description": "True if the input contains IP addresses.",
+          "type": "boolean"
+        },
+        "ContainsMacAddress": {
+          "description": "True if the input contains MAC addresses.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpDocumentDetectionRequest": {
+      "description": "Request object for DLP document detection with 23 PII detection types.",
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and sensitive data.",
+          "type": "string"
+        },
+        "FileName": {
+          "description": "Optional. Name of the input file including extension, used for format detection. If not provided, format is detected from file contents.",
+          "type": "string",
+          "example": "input.pdf"
+        },
+        "RecognitionMode": {
+          "description": "Optional. Recognition mode for image processing. Options: null (default), \"Fast\", \"FastPlus\", \"FastMini\".",
+          "type": "string",
+          "example": ""
+        },
+        "AllowEmailAddress": {
+          "description": "Set to true to allow email addresses in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPhoneNumber": {
+          "description": "Set to true to allow phone numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowStreetAddress": {
+          "description": "Set to true to allow street addresses in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPersonName": {
+          "description": "Set to true to allow person names in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBirthDate": {
+          "description": "Set to true to allow birth dates in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPassportNumber": {
+          "description": "Set to true to allow passport numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDriversLicense": {
+          "description": "Set to true to allow drivers license numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSocialSecurityNumber": {
+          "description": "Set to true to allow social security numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowTaxpayerID": {
+          "description": "Set to true to allow taxpayer IDs in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardNumber": {
+          "description": "Set to true to allow credit card numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardExpirationDate": {
+          "description": "Set to true to allow credit card expiration dates in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardVerificationCode": {
+          "description": "Set to true to allow credit card verification codes in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBankAccountNumber": {
+          "description": "Set to true to allow bank account numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIBAN": {
+          "description": "Set to true to allow IBANs in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceNumber": {
+          "description": "Set to true to allow health insurance numbers in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBearerToken": {
+          "description": "Set to true to allow bearer tokens in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHttpCookie": {
+          "description": "Set to true to allow HTTP cookies in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPrivateKeys": {
+          "description": "Set to true to allow private keys in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCredentials": {
+          "description": "Set to true to allow credentials (usernames/passwords) in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeepWebUrls": {
+          "description": "Set to true to allow deep web URLs (.onion) in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSourceCode": {
+          "description": "Set to true to allow source code in the document and not flag it as sensitive data.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIpAddress": {
+          "description": "Set to true to allow IP addresses in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMacAddress": {
+          "description": "Set to true to allow MAC addresses in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpDocumentRedactionRequest": {
+      "description": "Request object for DLP document redaction with 23 PII detection types.",
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and redact.",
+          "type": "string"
+        },
+        "FileName": {
+          "description": "Optional. Name of the input file including extension, used for format detection. If not provided, format is detected from file contents.",
+          "type": "string",
+          "example": "input.pdf"
+        },
+        "RecognitionMode": {
+          "description": "Optional. Recognition mode for image processing. Options: null (default), \"Fast\", \"FastPlus\", \"FastMini\".",
+          "type": "string",
+          "example": ""
+        },
+        "RedactionMode": {
+          "description": "Redaction mode for PII regions. Options: \"BlackOut\" (default) draws black rectangles over PII rows, \"Blur\" applies Gaussian blur to PII rows, \"BlackOutEntirePage\" blacks out entire dirty pages, \"BlurEntirePage\" blurs entire dirty pages.",
+          "type": "string",
+          "example": "BlackOut"
+        },
+        "AllowEmailAddress": {
+          "description": "Set to true to allow email addresses in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPhoneNumber": {
+          "description": "Set to true to allow phone numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowStreetAddress": {
+          "description": "Set to true to allow street addresses in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPersonName": {
+          "description": "Set to true to allow person names in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBirthDate": {
+          "description": "Set to true to allow birth dates in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPassportNumber": {
+          "description": "Set to true to allow passport numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDriversLicense": {
+          "description": "Set to true to allow drivers license numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSocialSecurityNumber": {
+          "description": "Set to true to allow social security numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowTaxpayerID": {
+          "description": "Set to true to allow taxpayer IDs in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardNumber": {
+          "description": "Set to true to allow credit card numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardExpirationDate": {
+          "description": "Set to true to allow credit card expiration dates in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardVerificationCode": {
+          "description": "Set to true to allow credit card verification codes in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBankAccountNumber": {
+          "description": "Set to true to allow bank account numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIBAN": {
+          "description": "Set to true to allow IBANs in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceNumber": {
+          "description": "Set to true to allow health insurance numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBearerToken": {
+          "description": "Set to true to allow bearer tokens in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHttpCookie": {
+          "description": "Set to true to allow HTTP cookies in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPrivateKeys": {
+          "description": "Set to true to allow private keys in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCredentials": {
+          "description": "Set to true to allow credentials (usernames/passwords) in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeepWebUrls": {
+          "description": "Set to true to allow deep web URLs (.onion) in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSourceCode": {
+          "description": "Set to true to allow source code in the document and not redact it.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIpAddress": {
+          "description": "Set to true to allow IP addresses in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMacAddress": {
+          "description": "Set to true to allow MAC addresses in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpDocumentRedactionResponse": {
+      "description": "Response object for DLP document redaction with 23 PII detection results and redacted document.",
+      "type": "object",
+      "properties": {
+        "RedactedDocument": {
+          "format": "byte",
+          "description": "The redacted document as a rasterized PDF with PII regions blurred, or the original file if no disallowed PII was found.",
+          "type": "string"
+        },
+        "CleanResult": {
+          "description": "True if no disallowed PII or sensitive data types were detected; false if any disallowed type was found and redacted.",
+          "type": "boolean"
+        },
+        "ContainsEmailAddress": {
+          "description": "True if the document contains email addresses.",
+          "type": "boolean"
+        },
+        "ContainsPhoneNumber": {
+          "description": "True if the document contains phone numbers.",
+          "type": "boolean"
+        },
+        "ContainsStreetAddress": {
+          "description": "True if the document contains street addresses.",
+          "type": "boolean"
+        },
+        "ContainsPersonName": {
+          "description": "True if the document contains person names.",
+          "type": "boolean"
+        },
+        "ContainsBirthDate": {
+          "description": "True if the document contains birth dates.",
+          "type": "boolean"
+        },
+        "ContainsPassportNumber": {
+          "description": "True if the document contains passport numbers.",
+          "type": "boolean"
+        },
+        "ContainsDriversLicense": {
+          "description": "True if the document contains drivers license numbers.",
+          "type": "boolean"
+        },
+        "ContainsSocialSecurityNumber": {
+          "description": "True if the document contains social security numbers.",
+          "type": "boolean"
+        },
+        "ContainsTaxpayerID": {
+          "description": "True if the document contains taxpayer IDs.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardNumber": {
+          "description": "True if the document contains credit card numbers.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardExpirationDate": {
+          "description": "True if the document contains credit card expiration dates.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardVerificationCode": {
+          "description": "True if the document contains credit card verification codes.",
+          "type": "boolean"
+        },
+        "ContainsBankAccountNumber": {
+          "description": "True if the document contains bank account numbers.",
+          "type": "boolean"
+        },
+        "ContainsIBAN": {
+          "description": "True if the document contains IBANs.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceNumber": {
+          "description": "True if the document contains health insurance numbers.",
+          "type": "boolean"
+        },
+        "ContainsBearerToken": {
+          "description": "True if the document contains bearer tokens.",
+          "type": "boolean"
+        },
+        "ContainsHttpCookie": {
+          "description": "True if the document contains HTTP cookies.",
+          "type": "boolean"
+        },
+        "ContainsPrivateKeys": {
+          "description": "True if the document contains private keys.",
+          "type": "boolean"
+        },
+        "ContainsCredentials": {
+          "description": "True if the document contains credentials (usernames/passwords).",
+          "type": "boolean"
+        },
+        "ContainsDeepWebUrls": {
+          "description": "True if the document contains deep web URLs (.onion).",
+          "type": "boolean"
+        },
+        "ContainsSourceCode": {
+          "description": "True if the document contains source code.",
+          "type": "boolean"
+        },
+        "ContainsIpAddress": {
+          "description": "True if the document contains IP addresses.",
+          "type": "boolean"
+        },
+        "ContainsMacAddress": {
+          "description": "True if the document contains MAC addresses.",
+          "type": "boolean"
+        },
+        "PagesRedacted": {
+          "description": "List of pages that were redacted (had PII regions blurred).",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RedactedPageInfo"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpRedactionRequest": {
+      "description": "Request object for DLP text redaction with 23 PII detection types and configurable redaction mode.",
+      "type": "object",
+      "properties": {
+        "InputText": {
+          "description": "Text to scan for PII and redact sensitive data from.",
+          "type": "string",
+          "example": "Hello, world!"
+        },
+        "AllowEmailAddress": {
+          "description": "Set to true to allow email addresses in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPhoneNumber": {
+          "description": "Set to true to allow phone numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowStreetAddress": {
+          "description": "Set to true to allow street addresses in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPersonName": {
+          "description": "Set to true to allow person names in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBirthDate": {
+          "description": "Set to true to allow birth dates in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPassportNumber": {
+          "description": "Set to true to allow passport numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDriversLicense": {
+          "description": "Set to true to allow drivers license numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSocialSecurityNumber": {
+          "description": "Set to true to allow social security numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowTaxpayerID": {
+          "description": "Set to true to allow taxpayer IDs in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardNumber": {
+          "description": "Set to true to allow credit card numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardExpirationDate": {
+          "description": "Set to true to allow credit card expiration dates in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardVerificationCode": {
+          "description": "Set to true to allow credit card verification codes in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBankAccountNumber": {
+          "description": "Set to true to allow bank account numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIBAN": {
+          "description": "Set to true to allow IBANs in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceNumber": {
+          "description": "Set to true to allow health insurance numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBearerToken": {
+          "description": "Set to true to allow bearer tokens in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHttpCookie": {
+          "description": "Set to true to allow HTTP cookies in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPrivateKeys": {
+          "description": "Set to true to allow private keys in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCredentials": {
+          "description": "Set to true to allow credentials (usernames/passwords) in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeepWebUrls": {
+          "description": "Set to true to allow deep web URLs (.onion) in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSourceCode": {
+          "description": "Set to true to allow source code in the input text and not redact it.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIpAddress": {
+          "description": "Set to true to allow IP addresses in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMacAddress": {
+          "description": "Set to true to allow MAC addresses in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "RedactionMode": {
+          "description": "Redaction mode: \"Delete\" to remove PII entirely, or \"ReplaceWithAsterisk\" to replace PII characters with asterisks (*).",
+          "type": "string",
+          "example": "ReplaceWithAsterisk"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpRedactionResponse": {
+      "description": "Response object for DLP text redaction with 23 PII detection results and redacted text.",
+      "type": "object",
+      "properties": {
+        "RedactedText": {
+          "description": "The redacted text with PII removed or replaced, or the original text if no disallowed PII was found.",
+          "type": "string"
+        },
+        "CleanResult": {
+          "description": "True if no disallowed PII or sensitive data types were detected; false if any disallowed type was found and redacted.",
+          "type": "boolean"
+        },
+        "ContainsEmailAddress": {
+          "description": "True if the input contains email addresses.",
+          "type": "boolean"
+        },
+        "ContainsPhoneNumber": {
+          "description": "True if the input contains phone numbers.",
+          "type": "boolean"
+        },
+        "ContainsStreetAddress": {
+          "description": "True if the input contains street addresses.",
+          "type": "boolean"
+        },
+        "ContainsPersonName": {
+          "description": "True if the input contains person names.",
+          "type": "boolean"
+        },
+        "ContainsBirthDate": {
+          "description": "True if the input contains birth dates.",
+          "type": "boolean"
+        },
+        "ContainsPassportNumber": {
+          "description": "True if the input contains passport numbers.",
+          "type": "boolean"
+        },
+        "ContainsDriversLicense": {
+          "description": "True if the input contains drivers license numbers.",
+          "type": "boolean"
+        },
+        "ContainsSocialSecurityNumber": {
+          "description": "True if the input contains social security numbers.",
+          "type": "boolean"
+        },
+        "ContainsTaxpayerID": {
+          "description": "True if the input contains taxpayer IDs.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardNumber": {
+          "description": "True if the input contains credit card numbers.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardExpirationDate": {
+          "description": "True if the input contains credit card expiration dates.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardVerificationCode": {
+          "description": "True if the input contains credit card verification codes.",
+          "type": "boolean"
+        },
+        "ContainsBankAccountNumber": {
+          "description": "True if the input contains bank account numbers.",
+          "type": "boolean"
+        },
+        "ContainsIBAN": {
+          "description": "True if the input contains IBANs.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceNumber": {
+          "description": "True if the input contains health insurance numbers.",
+          "type": "boolean"
+        },
+        "ContainsBearerToken": {
+          "description": "True if the input contains bearer tokens.",
+          "type": "boolean"
+        },
+        "ContainsHttpCookie": {
+          "description": "True if the input contains HTTP cookies.",
+          "type": "boolean"
+        },
+        "ContainsPrivateKeys": {
+          "description": "True if the input contains private keys.",
+          "type": "boolean"
+        },
+        "ContainsCredentials": {
+          "description": "True if the input contains credentials (usernames/passwords).",
+          "type": "boolean"
+        },
+        "ContainsDeepWebUrls": {
+          "description": "True if the input contains deep web URLs (.onion).",
+          "type": "boolean"
+        },
+        "ContainsSourceCode": {
+          "description": "True if the input contains source code.",
+          "type": "boolean"
+        },
+        "ContainsIpAddress": {
+          "description": "True if the input contains IP addresses.",
+          "type": "boolean"
+        },
+        "ContainsMacAddress": {
+          "description": "True if the input contains MAC addresses.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "RedactedPageInfo": {
+      "description": "Information about a redacted page.",
+      "type": "object",
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "description": "1-based page number that was redacted.",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "securityDefinitions": {
+    "Apikey": {
+      "type": "apiKey",
+      "name": "Apikey",
+      "in": "header",
+      "description": "Apikey"
+    }
+  },
+  "security": [
+    {
+      "Apikey": [ ]
+    }
+  ]
+}

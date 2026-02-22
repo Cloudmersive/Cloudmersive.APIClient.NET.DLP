@@ -1,14 +1,14 @@
 ﻿{
-    "packageName": "Cloudmersive.APIClient.NET.Phishing",
-    "packageVersion": "4.0.4",
+    "packageName": "Cloudmersive.APIClient.NET.DLP",
+    "packageVersion": "4.0.0",
 
 
-    "packageTitle":       "Cloudmersive Phishing Detection API Client",
-    "packageDescription": "Cloudmersive Phishing Detection allows you to scan input for phishing and business email compromise threats.  AI phishing detection helps you to identify phishing with high confidence.",
+    "packageTitle":       "Cloudmersive Data Loss Prevention API Client",
+    "packageDescription": "Cloudmersive Data Loss Prevention allows you to scan input for Personally Identifiable Information (PII), Personal Health Information (PHI), Personal Financial Information and other types of sensitive data.  Advanced AI is used to both detect and redact with next-generation accuracy.",
     "packageAuthors":     "Cloudmersive LLC",
     "packageCompany":     "Cloudmersive LLC",
-    "packageProjectUrl":  "https://cloudmersive.com/phishing-detection-api",
-    "packageUrl":  "https://cloudmersive.com/phishing-detection-api",
+    "packageProjectUrl":  "https://cloudmersive.com/dlp-data-loss-prevention-api",
+    "packageUrl":  "https://cloudmersive.com/dlp-data-loss-prevention-api",
     "packageIconUrl":     "https://cloudmersive.com/images/cmsdk.png",
     "packageTags":        "ai phishing detection cloudmersive",
     "releaseNote":        "Change to HttpClient core",
@@ -19,7 +19,7 @@
 
     "licenseId": "Apache-2.0",
 
-    "packageCopyright":          "Copyright © 2025 Cloudmersive, LLC.",
+    "packageCopyright":          "Copyright © 2026 Cloudmersive, LLC.",
 
     "packageGuid": "e2e34afe-8252-4dc4-a869-04e75647dffb",
     "library": "restsharp",
