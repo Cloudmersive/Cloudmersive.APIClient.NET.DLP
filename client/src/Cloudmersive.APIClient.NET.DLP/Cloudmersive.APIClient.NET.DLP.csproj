@@ -15,7 +15,7 @@
     <Version>4.0.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cloudmersive.APIClient.NET.DLP.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/Cloudmersive/Cloudmersive.APIClient.NET.Phishing.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Cloudmersive/Cloudmersive.APIClient.NET.DLP.git</RepositoryUrl><PackageProjectUrl>https://cloudmersive.com/dlp-data-loss-prevention-api</PackageProjectUrl><PackageIconUrl>https://cloudmersive.com/images/cmsdk.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Change to HttpClient core</PackageReleaseNotes>
     <PackageTags>ai phishing detection cloudmersive</PackageTags>

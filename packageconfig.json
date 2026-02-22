@@ -21,7 +21,7 @@
 
     "packageCopyright":          "Copyright © 2026 Cloudmersive, LLC.",
 
-    "packageGuid": "e2e34afe-8252-4dc4-a869-04e75647dffb",
+    "packageGuid": "561166d3-432a-4a35-a4f6-c0135221ffaa",
     "library": "restsharp",
     "supportsFileParameters": true,
     "targetFramework": "netstandard2.0",

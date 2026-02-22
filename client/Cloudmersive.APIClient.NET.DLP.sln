@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmersive.APIClient.NET.DLP", "src\Cloudmersive.APIClient.NET.DLP\Cloudmersive.APIClient.NET.DLP.csproj", "e2e34afe-8252-4dc4-a869-04e75647dffb"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmersive.APIClient.NET.DLP", "src\Cloudmersive.APIClient.NET.DLP\Cloudmersive.APIClient.NET.DLP.csproj", "561166d3-432a-4a35-a4f6-c0135221ffaa"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmersive.APIClient.NET.DLP.Test", "src\Cloudmersive.APIClient.NET.DLP.Test\Cloudmersive.APIClient.NET.DLP.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		e2e34afe-8252-4dc4-a869-04e75647dffb.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		e2e34afe-8252-4dc4-a869-04e75647dffb.Debug|Any CPU.Build.0 = Debug|Any CPU
-		e2e34afe-8252-4dc4-a869-04e75647dffb.Release|Any CPU.ActiveCfg = Release|Any CPU
-		e2e34afe-8252-4dc4-a869-04e75647dffb.Release|Any CPU.Build.0 = Release|Any CPU
+		561166d3-432a-4a35-a4f6-c0135221ffaa.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		561166d3-432a-4a35-a4f6-c0135221ffaa.Debug|Any CPU.Build.0 = Debug|Any CPU
+		561166d3-432a-4a35-a4f6-c0135221ffaa.Release|Any CPU.ActiveCfg = Release|Any CPU
+		561166d3-432a-4a35-a4f6-c0135221ffaa.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
