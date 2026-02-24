@@ -377,5 +377,14 @@ namespace Cloudmersive.APIClient.NET.DLP.Test.Model
         {
             // TODO unit test for the property 'ProvideAnalysisRationale'
         }
+
+        /// <summary>
+        /// Test the property 'CustomPolicyID'
+        /// </summary>
+        [Fact]
+        public void CustomPolicyIDTest()
+        {
+            // TODO unit test for the property 'CustomPolicyID'
+        }
     }
 }

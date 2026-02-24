@@ -5,7 +5,7 @@ Request object for DLP document detection with 23 PII detection types.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InputFile** | **byte[]** | Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and sensitive data. | [optional] 
+**InputFile** | **byte[]** | Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and sensitive data. | [optional] 
 **FileName** | **string** | Optional. Name of the input file including extension, used for format detection. If not provided, format is detected from file contents. | [optional] 
 **RecognitionMode** | **string** | Optional. Recognition mode for image processing. Options: null (default), \&quot;Fast\&quot;, \&quot;FastPlus\&quot;, \&quot;FastMini\&quot;. | [optional] 
 **AllowEmailAddress** | **bool** | Set to true to allow email addresses in the document and not flag them as PII. | [optional] 

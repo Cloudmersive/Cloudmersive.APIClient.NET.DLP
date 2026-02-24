@@ -34,7 +34,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DlpAdvancedDocumentRedactionRequest" /> class.
         /// </summary>
-        /// <param name="inputFile">Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and redact..</param>
+        /// <param name="inputFile">Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and redact..</param>
         /// <param name="fileName">Optional. Name of the input file including extension, used for format detection. If not provided, format is detected from file contents..</param>
         /// <param name="recognitionMode">Optional. Recognition mode for image processing. Options: null (default), \&quot;Fast\&quot;, \&quot;FastPlus\&quot;, \&quot;FastMini\&quot;..</param>
         /// <param name="redactionMode">Redaction mode for PII regions. Options: \&quot;BlackOut\&quot; (default) draws black rectangles over PII rows, \&quot;Blur\&quot; applies Gaussian blur to PII rows, \&quot;BlackOutEntirePage\&quot; blacks out entire dirty pages, \&quot;BlurEntirePage\&quot; blurs entire dirty pages..</param>
@@ -74,7 +74,8 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         /// <param name="allowHealthUniversalRecordLocator">Set to true to allow health universal record locators (URLs) in the document and not redact them..</param>
         /// <param name="allowBiometrics">Set to true to allow biometric data references (e.g. fingerprints, retinal scans, voiceprints) in the document and not redact them..</param>
         /// <param name="provideAnalysisRationale">Set to true to include a natural language rationale explaining why each detection conclusion was formed..</param>
-        public DlpAdvancedDocumentRedactionRequest(byte[] inputFile = default(byte[]), string fileName = default(string), string recognitionMode = default(string), string redactionMode = default(string), bool allowEmailAddress = default(bool), bool allowPhoneNumber = default(bool), bool allowStreetAddress = default(bool), bool allowPersonName = default(bool), bool allowBirthDate = default(bool), bool allowPassportNumber = default(bool), bool allowDriversLicense = default(bool), bool allowSocialSecurityNumber = default(bool), bool allowTaxpayerID = default(bool), bool allowCreditCardNumber = default(bool), bool allowCreditCardExpirationDate = default(bool), bool allowCreditCardVerificationCode = default(bool), bool allowBankAccountNumber = default(bool), bool allowIBAN = default(bool), bool allowHealthInsuranceNumber = default(bool), bool allowBearerToken = default(bool), bool allowHttpCookie = default(bool), bool allowPrivateKeys = default(bool), bool allowCredentials = default(bool), bool allowDeepWebUrls = default(bool), bool allowSourceCode = default(bool), bool allowIpAddress = default(bool), bool allowMacAddress = default(bool), bool allowHealthInsuranceMemberID = default(bool), bool allowHealthInjuryOrDisease = default(bool), bool allowHealthTypeOfTreatment = default(bool), bool allowHealthDateAndTimeOfTreatment = default(bool), bool allowHealthPlanBeneficiaryNumber = default(bool), bool allowHealthPaymentsMadeForTreatment = default(bool), bool allowFaces = default(bool), bool allowVehicleID = default(bool), bool allowDeviceID = default(bool), bool allowNamesOfRelatives = default(bool), bool allowHealthUniversalRecordLocator = default(bool), bool allowBiometrics = default(bool), bool provideAnalysisRationale = default(bool))
+        /// <param name="customPolicyID">Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud.</param>
+        public DlpAdvancedDocumentRedactionRequest(byte[] inputFile = default(byte[]), string fileName = default(string), string recognitionMode = default(string), string redactionMode = default(string), bool allowEmailAddress = default(bool), bool allowPhoneNumber = default(bool), bool allowStreetAddress = default(bool), bool allowPersonName = default(bool), bool allowBirthDate = default(bool), bool allowPassportNumber = default(bool), bool allowDriversLicense = default(bool), bool allowSocialSecurityNumber = default(bool), bool allowTaxpayerID = default(bool), bool allowCreditCardNumber = default(bool), bool allowCreditCardExpirationDate = default(bool), bool allowCreditCardVerificationCode = default(bool), bool allowBankAccountNumber = default(bool), bool allowIBAN = default(bool), bool allowHealthInsuranceNumber = default(bool), bool allowBearerToken = default(bool), bool allowHttpCookie = default(bool), bool allowPrivateKeys = default(bool), bool allowCredentials = default(bool), bool allowDeepWebUrls = default(bool), bool allowSourceCode = default(bool), bool allowIpAddress = default(bool), bool allowMacAddress = default(bool), bool allowHealthInsuranceMemberID = default(bool), bool allowHealthInjuryOrDisease = default(bool), bool allowHealthTypeOfTreatment = default(bool), bool allowHealthDateAndTimeOfTreatment = default(bool), bool allowHealthPlanBeneficiaryNumber = default(bool), bool allowHealthPaymentsMadeForTreatment = default(bool), bool allowFaces = default(bool), bool allowVehicleID = default(bool), bool allowDeviceID = default(bool), bool allowNamesOfRelatives = default(bool), bool allowHealthUniversalRecordLocator = default(bool), bool allowBiometrics = default(bool), bool provideAnalysisRationale = default(bool), string customPolicyID = default(string))
         {
             this.InputFile = inputFile;
             this.FileName = fileName;
@@ -116,12 +117,13 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
             this.AllowHealthUniversalRecordLocator = allowHealthUniversalRecordLocator;
             this.AllowBiometrics = allowBiometrics;
             this.ProvideAnalysisRationale = provideAnalysisRationale;
+            this.CustomPolicyID = customPolicyID;
         }
 
         /// <summary>
-        /// Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and redact.
+        /// Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and redact.
         /// </summary>
-        /// <value>Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and redact.</value>
+        /// <value>Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and redact.</value>
         [DataMember(Name = "InputFile", EmitDefaultValue = false)]
         public byte[] InputFile { get; set; }
 
@@ -513,6 +515,13 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         public bool ProvideAnalysisRationale { get; set; }
 
         /// <summary>
+        /// Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud
+        /// </summary>
+        /// <value>Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud</value>
+        [DataMember(Name = "CustomPolicyID", EmitDefaultValue = false)]
+        public string CustomPolicyID { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -560,6 +569,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
             sb.Append("  AllowHealthUniversalRecordLocator: ").Append(AllowHealthUniversalRecordLocator).Append("\n");
             sb.Append("  AllowBiometrics: ").Append(AllowBiometrics).Append("\n");
             sb.Append("  ProvideAnalysisRationale: ").Append(ProvideAnalysisRationale).Append("\n");
+            sb.Append("  CustomPolicyID: ").Append(CustomPolicyID).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

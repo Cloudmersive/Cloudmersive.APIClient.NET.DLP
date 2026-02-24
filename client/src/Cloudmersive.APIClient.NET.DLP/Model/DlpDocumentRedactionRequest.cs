@@ -34,7 +34,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DlpDocumentRedactionRequest" /> class.
         /// </summary>
-        /// <param name="inputFile">Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and redact..</param>
+        /// <param name="inputFile">Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and redact..</param>
         /// <param name="fileName">Optional. Name of the input file including extension, used for format detection. If not provided, format is detected from file contents..</param>
         /// <param name="recognitionMode">Optional. Recognition mode for image processing. Options: null (default), \&quot;Fast\&quot;, \&quot;FastPlus\&quot;, \&quot;FastMini\&quot;..</param>
         /// <param name="redactionMode">Redaction mode for PII regions. Options: \&quot;BlackOut\&quot; (default) draws black rectangles over PII rows, \&quot;Blur\&quot; applies Gaussian blur to PII rows, \&quot;BlackOutEntirePage\&quot; blacks out entire dirty pages, \&quot;BlurEntirePage\&quot; blurs entire dirty pages..</param>
@@ -93,9 +93,9 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         }
 
         /// <summary>
-        /// Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and redact.
+        /// Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and redact.
         /// </summary>
-        /// <value>Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and redact.</value>
+        /// <value>Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and redact.</value>
         [DataMember(Name = "InputFile", EmitDefaultValue = false)]
         public byte[] InputFile { get; set; }
 

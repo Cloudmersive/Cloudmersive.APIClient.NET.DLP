@@ -88,7 +88,7 @@
           "Detect"
         ],
         "summary": "Detect User Data in Document Image (Advanced)",
-        "description": "Detects 29 configurable types of user data including health-related PHI in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.",
+        "description": "Detects 29 configurable types of user data including health-related PHI in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.",
         "operationId": "DetectDocumentAdvanced",
         "consumes": [
           "application/json",
@@ -126,7 +126,7 @@
           "Detect"
         ],
         "summary": "Detect User Data in Document Image",
-        "description": "Detects configurable types of user data in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.",
+        "description": "Detects configurable types of user data in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.",
         "operationId": "DetectDocument",
         "consumes": [
           "application/json",
@@ -240,7 +240,7 @@
           "Redact"
         ],
         "summary": "Redact User Data in Document",
-        "description": "Detects and redacts configurable types of user data in a document (PDF, DOCX, PNG, JPG) using Advanced AI. Rasterizes document pages, detects PII regions using a grid-overlay approach, blurs those regions, and returns a rasterized PDF.",
+        "description": "Detects and redacts configurable types of user data in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI. Rasterizes document pages, detects PII regions using a grid-overlay approach, blurs those regions, and returns a rasterized PDF.",
         "operationId": "RedactDocument",
         "consumes": [
           "application/json",
@@ -278,7 +278,7 @@
           "Redact"
         ],
         "summary": "Redact User Data in Document (Advanced)",
-        "description": "Detects and redacts 35 configurable types of user data including health-related PHI in a document (PDF, DOCX, PNG, JPG) using Advanced AI. Rasterizes document pages, detects PII regions using a row-overlay approach, redacts those regions, and returns a rasterized PDF.",
+        "description": "Detects and redacts 35 configurable types of user data including health-related PHI in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI. Rasterizes document pages, detects PII regions using a row-overlay approach, redacts those regions, and returns a rasterized PDF.",
         "operationId": "RedactDocumentAdvanced",
         "consumes": [
           "application/json",
@@ -494,6 +494,11 @@
         "ProvideAnalysisRationale": {
           "description": "Set to true to include a natural language rationale explaining why each detection conclusion was formed.",
           "type": "boolean"
+        },
+        "CustomPolicyID": {
+          "description": "Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,\r\nnavigate to the Cloudmersive Management Portal and select Custom Policies.\r\nRequires Managed Instance or Private Cloud",
+          "type": "string",
+          "example": ""
         }
       },
       "additionalProperties": false
@@ -659,7 +664,7 @@
       "properties": {
         "InputFile": {
           "format": "byte",
-          "description": "Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and sensitive data.",
+          "description": "Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and sensitive data.",
           "type": "string"
         },
         "FileName": {
@@ -850,6 +855,11 @@
         "ProvideAnalysisRationale": {
           "description": "Set to true to include a natural language rationale explaining why each detection conclusion was formed.",
           "type": "boolean"
+        },
+        "CustomPolicyID": {
+          "description": "Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,\r\nnavigate to the Cloudmersive Management Portal and select Custom Policies.\r\nRequires Managed Instance or Private Cloud",
+          "type": "string",
+          "example": ""
         }
       },
       "additionalProperties": false
@@ -860,7 +870,7 @@
       "properties": {
         "InputFile": {
           "format": "byte",
-          "description": "Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and redact.",
+          "description": "Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and redact.",
           "type": "string"
         },
         "FileName": {
@@ -1057,6 +1067,11 @@
           "description": "Set to true to include a natural language rationale explaining why each detection conclusion was formed.",
           "type": "boolean",
           "example": true
+        },
+        "CustomPolicyID": {
+          "description": "Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,\r\nnavigate to the Cloudmersive Management Portal and select Custom Policies.\r\nRequires Managed Instance or Private Cloud",
+          "type": "string",
+          "example": ""
         }
       },
       "additionalProperties": false
@@ -1416,6 +1431,11 @@
           "description": "Set to true to include a natural language rationale explaining why each detection conclusion was formed.",
           "type": "boolean",
           "example": true
+        },
+        "CustomPolicyID": {
+          "description": "Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,\r\nnavigate to the Cloudmersive Management Portal and select Custom Policies.\r\nRequires Managed Instance or Private Cloud",
+          "type": "string",
+          "example": ""
         }
       },
       "additionalProperties": false
@@ -1811,7 +1831,7 @@
       "properties": {
         "InputFile": {
           "format": "byte",
-          "description": "Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and sensitive data.",
+          "description": "Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and sensitive data.",
           "type": "string"
         },
         "FileName": {
@@ -1948,7 +1968,7 @@
       "properties": {
         "InputFile": {
           "format": "byte",
-          "description": "Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and redact.",
+          "description": "Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and redact.",
           "type": "string"
         },
         "FileName": {

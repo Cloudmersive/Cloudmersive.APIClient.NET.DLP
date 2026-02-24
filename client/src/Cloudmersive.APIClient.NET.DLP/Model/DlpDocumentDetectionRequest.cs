@@ -34,7 +34,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DlpDocumentDetectionRequest" /> class.
         /// </summary>
-        /// <param name="inputFile">Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and sensitive data..</param>
+        /// <param name="inputFile">Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and sensitive data..</param>
         /// <param name="fileName">Optional. Name of the input file including extension, used for format detection. If not provided, format is detected from file contents..</param>
         /// <param name="recognitionMode">Optional. Recognition mode for image processing. Options: null (default), \&quot;Fast\&quot;, \&quot;FastPlus\&quot;, \&quot;FastMini\&quot;..</param>
         /// <param name="allowEmailAddress">Set to true to allow email addresses in the document and not flag them as PII..</param>
@@ -91,9 +91,9 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         }
 
         /// <summary>
-        /// Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and sensitive data.
+        /// Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and sensitive data.
         /// </summary>
-        /// <value>Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and sensitive data.</value>
+        /// <value>Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and sensitive data.</value>
         [DataMember(Name = "InputFile", EmitDefaultValue = false)]
         public byte[] InputFile { get; set; }
 

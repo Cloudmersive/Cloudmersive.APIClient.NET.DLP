@@ -5,7 +5,7 @@ Request object for advanced DLP document redaction with 35 PII detection types i
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InputFile** | **byte[]** | Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII and redact. | [optional] 
+**InputFile** | **byte[]** | Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and redact. | [optional] 
 **FileName** | **string** | Optional. Name of the input file including extension, used for format detection. If not provided, format is detected from file contents. | [optional] 
 **RecognitionMode** | **string** | Optional. Recognition mode for image processing. Options: null (default), \&quot;Fast\&quot;, \&quot;FastPlus\&quot;, \&quot;FastMini\&quot;. | [optional] 
 **RedactionMode** | **string** | Redaction mode for PII regions. Options: \&quot;BlackOut\&quot; (default) draws black rectangles over PII rows, \&quot;Blur\&quot; applies Gaussian blur to PII rows, \&quot;BlackOutEntirePage\&quot; blacks out entire dirty pages, \&quot;BlurEntirePage\&quot; blurs entire dirty pages. | [optional] 
@@ -45,6 +45,7 @@ Name | Type | Description | Notes
 **AllowHealthUniversalRecordLocator** | **bool** | Set to true to allow health universal record locators (URLs) in the document and not redact them. | [optional] 
 **AllowBiometrics** | **bool** | Set to true to allow biometric data references (e.g. fingerprints, retinal scans, voiceprints) in the document and not redact them. | [optional] 
 **ProvideAnalysisRationale** | **bool** | Set to true to include a natural language rationale explaining why each detection conclusion was formed. | [optional] 
+**CustomPolicyID** | **string** | Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

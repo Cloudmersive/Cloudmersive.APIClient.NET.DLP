@@ -81,7 +81,8 @@ paths:
   /dlp/detect/document/advanced:
     post:
       description: "Detects 29 configurable types of user data including health-related\
-        \ PHI in a document image (PDF, DOCX, PNG, JPG) using Advanced AI."
+        \ PHI in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG,\
+        \ PNG, JPG, WEBP) using Advanced AI."
       operationId: DetectDocumentAdvanced
       requestBody:
         content:
@@ -115,8 +116,9 @@ paths:
       x-codegen-request-body-name: body
   /dlp/detect/document:
     post:
-      description: "Detects configurable types of user data in a document image (PDF,\
-        \ DOCX, PNG, JPG) using Advanced AI."
+      description: "Detects configurable types of user data in a document (PDF, DOC,\
+        \ DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced\
+        \ AI."
       operationId: DetectDocument
       requestBody:
         content:
@@ -224,9 +226,9 @@ paths:
   /dlp/redact/document:
     post:
       description: "Detects and redacts configurable types of user data in a document\
-        \ (PDF, DOCX, PNG, JPG) using Advanced AI. Rasterizes document pages, detects\
-        \ PII regions using a grid-overlay approach, blurs those regions, and returns\
-        \ a rasterized PDF."
+        \ (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using\
+        \ Advanced AI. Rasterizes document pages, detects PII regions using a grid-overlay\
+        \ approach, blurs those regions, and returns a rasterized PDF."
       operationId: RedactDocument
       requestBody:
         content:
@@ -261,9 +263,10 @@ paths:
   /dlp/redact/document/advanced:
     post:
       description: "Detects and redacts 35 configurable types of user data including\
-        \ health-related PHI in a document (PDF, DOCX, PNG, JPG) using Advanced AI.\
-        \ Rasterizes document pages, detects PII regions using a row-overlay approach,\
-        \ redacts those regions, and returns a rasterized PDF."
+        \ health-related PHI in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX,\
+        \ HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI. Rasterizes document pages,\
+        \ detects PII regions using a row-overlay approach, redacts those regions,\
+        \ and returns a rasterized PDF."
       operationId: RedactDocumentAdvanced
       requestBody:
         content:
@@ -332,6 +335,7 @@ components:
         AllowHealthTypeOfTreatment: false
         AllowCreditCardVerificationCode: false
         AllowPhoneNumber: false
+        CustomPolicyID: ""
         AllowIBAN: false
         AllowNamesOfRelatives: false
         AllowBiometrics: false
@@ -518,6 +522,13 @@ components:
           description: Set to true to include a natural language rationale explaining
             why each detection conclusion was formed.
           type: boolean
+        CustomPolicyID:
+          description: "Apply a Custom Policy for DLP Enforcement by providing the\
+            \ ID; to create a Custom Policy,\r\nnavigate to the Cloudmersive Management\
+            \ Portal and select Custom Policies.\r\nRequires Managed Instance or Private\
+            \ Cloud"
+          example: ""
+          type: string
       type: object
     DlpAdvancedDetectionResponse:
       additionalProperties: false
@@ -720,6 +731,7 @@ components:
         AllowHealthTypeOfTreatment: false
         AllowCreditCardVerificationCode: false
         AllowPhoneNumber: false
+        CustomPolicyID: ""
         AllowIBAN: false
         AllowNamesOfRelatives: false
         AllowBiometrics: false
@@ -728,8 +740,8 @@ components:
         AllowHealthPlanBeneficiaryNumber: false
       properties:
         InputFile:
-          description: "Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII\
-            \ and sensitive data."
+          description: "Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX,\
+            \ HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and sensitive data."
           format: byte
           pattern: "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
           type: string
@@ -923,6 +935,13 @@ components:
           description: Set to true to include a natural language rationale explaining
             why each detection conclusion was formed.
           type: boolean
+        CustomPolicyID:
+          description: "Apply a Custom Policy for DLP Enforcement by providing the\
+            \ ID; to create a Custom Policy,\r\nnavigate to the Cloudmersive Management\
+            \ Portal and select Custom Policies.\r\nRequires Managed Instance or Private\
+            \ Cloud"
+          example: ""
+          type: string
       type: object
     DlpAdvancedDocumentRedactionRequest:
       additionalProperties: false
@@ -963,6 +982,7 @@ components:
         AllowHealthTypeOfTreatment: false
         AllowCreditCardVerificationCode: false
         AllowPhoneNumber: false
+        CustomPolicyID: ""
         AllowIBAN: false
         AllowNamesOfRelatives: false
         AllowBiometrics: false
@@ -971,8 +991,8 @@ components:
         AllowHealthPlanBeneficiaryNumber: false
       properties:
         InputFile:
-          description: "Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII\
-            \ and redact."
+          description: "Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX,\
+            \ HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and redact."
           format: byte
           pattern: "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
           type: string
@@ -1173,6 +1193,13 @@ components:
             why each detection conclusion was formed.
           example: true
           type: boolean
+        CustomPolicyID:
+          description: "Apply a Custom Policy for DLP Enforcement by providing the\
+            \ ID; to create a Custom Policy,\r\nnavigate to the Cloudmersive Management\
+            \ Portal and select Custom Policies.\r\nRequires Managed Instance or Private\
+            \ Cloud"
+          example: ""
+          type: string
       type: object
     DlpAdvancedDocumentRedactionResponse:
       additionalProperties: false
@@ -1387,6 +1414,7 @@ components:
         AllowHealthTypeOfTreatment: false
         AllowCreditCardVerificationCode: false
         AllowPhoneNumber: false
+        CustomPolicyID: ""
         AllowIBAN: false
         AllowNamesOfRelatives: false
         AllowBiometrics: false
@@ -1578,6 +1606,13 @@ components:
             why each detection conclusion was formed.
           example: true
           type: boolean
+        CustomPolicyID:
+          description: "Apply a Custom Policy for DLP Enforcement by providing the\
+            \ ID; to create a Custom Policy,\r\nnavigate to the Cloudmersive Management\
+            \ Portal and select Custom Policies.\r\nRequires Managed Instance or Private\
+            \ Cloud"
+          example: ""
+          type: string
       type: object
     DlpAdvancedRedactionResponse:
       additionalProperties: false
@@ -2027,8 +2062,8 @@ components:
         AllowTaxpayerID: false
       properties:
         InputFile:
-          description: "Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII\
-            \ and sensitive data."
+          description: "Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX,\
+            \ HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and sensitive data."
           format: byte
           pattern: "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
           type: string
@@ -2193,8 +2228,8 @@ components:
         AllowTaxpayerID: false
       properties:
         InputFile:
-          description: "Document file bytes (PDF, DOCX, PNG, or JPG) to scan for PII\
-            \ and redact."
+          description: "Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX,\
+            \ HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and redact."
           format: byte
           pattern: "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
           type: string

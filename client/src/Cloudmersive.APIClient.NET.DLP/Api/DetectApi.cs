@@ -30,7 +30,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         /// Detect User Data in Document Image
         /// </summary>
         /// <remarks>
-        /// Detects configurable types of user data in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detects configurable types of user data in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -42,7 +42,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         /// Detect User Data in Document Image
         /// </summary>
         /// <remarks>
-        /// Detects configurable types of user data in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detects configurable types of user data in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -53,7 +53,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         /// Detect User Data in Document Image (Advanced)
         /// </summary>
         /// <remarks>
-        /// Detects 29 configurable types of user data including health-related PHI in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detects 29 configurable types of user data including health-related PHI in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -65,7 +65,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         /// Detect User Data in Document Image (Advanced)
         /// </summary>
         /// <remarks>
-        /// Detects 29 configurable types of user data including health-related PHI in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detects 29 configurable types of user data including health-related PHI in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -131,7 +131,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         /// Detect User Data in Document Image
         /// </summary>
         /// <remarks>
-        /// Detects configurable types of user data in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detects configurable types of user data in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -144,7 +144,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         /// Detect User Data in Document Image
         /// </summary>
         /// <remarks>
-        /// Detects configurable types of user data in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detects configurable types of user data in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -156,7 +156,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         /// Detect User Data in Document Image (Advanced)
         /// </summary>
         /// <remarks>
-        /// Detects 29 configurable types of user data including health-related PHI in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detects 29 configurable types of user data including health-related PHI in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -169,7 +169,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         /// Detect User Data in Document Image (Advanced)
         /// </summary>
         /// <remarks>
-        /// Detects 29 configurable types of user data including health-related PHI in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detects 29 configurable types of user data including health-related PHI in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -348,7 +348,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         }
 
         /// <summary>
-        /// Detect User Data in Document Image Detects configurable types of user data in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detect User Data in Document Image Detects configurable types of user data in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -361,7 +361,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         }
 
         /// <summary>
-        /// Detect User Data in Document Image Detects configurable types of user data in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detect User Data in Document Image Detects configurable types of user data in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -423,7 +423,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         }
 
         /// <summary>
-        /// Detect User Data in Document Image Detects configurable types of user data in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detect User Data in Document Image Detects configurable types of user data in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -437,7 +437,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         }
 
         /// <summary>
-        /// Detect User Data in Document Image Detects configurable types of user data in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detect User Data in Document Image Detects configurable types of user data in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -501,7 +501,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         }
 
         /// <summary>
-        /// Detect User Data in Document Image (Advanced) Detects 29 configurable types of user data including health-related PHI in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detect User Data in Document Image (Advanced) Detects 29 configurable types of user data including health-related PHI in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -514,7 +514,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         }
 
         /// <summary>
-        /// Detect User Data in Document Image (Advanced) Detects 29 configurable types of user data including health-related PHI in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detect User Data in Document Image (Advanced) Detects 29 configurable types of user data including health-related PHI in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -576,7 +576,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         }
 
         /// <summary>
-        /// Detect User Data in Document Image (Advanced) Detects 29 configurable types of user data including health-related PHI in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detect User Data in Document Image (Advanced) Detects 29 configurable types of user data including health-related PHI in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>
@@ -590,7 +590,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
         }
 
         /// <summary>
-        /// Detect User Data in Document Image (Advanced) Detects 29 configurable types of user data including health-related PHI in a document image (PDF, DOCX, PNG, JPG) using Advanced AI.
+        /// Detect User Data in Document Image (Advanced) Detects 29 configurable types of user data including health-related PHI in a document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) using Advanced AI.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Input request (optional)</param>

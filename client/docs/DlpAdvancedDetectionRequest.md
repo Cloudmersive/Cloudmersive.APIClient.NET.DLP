@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **AllowHealthUniversalRecordLocator** | **bool** | Set to true to allow health universal record locators (URLs) in the input text and not flag them as PHI. | [optional] 
 **AllowBiometrics** | **bool** | Set to true to allow biometric data references (e.g. fingerprints, retinal scans, voiceprints) in the input text and not flag them as PII. | [optional] 
 **ProvideAnalysisRationale** | **bool** | Set to true to include a natural language rationale explaining why each detection conclusion was formed. | [optional] 
+**CustomPolicyID** | **string** | Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
