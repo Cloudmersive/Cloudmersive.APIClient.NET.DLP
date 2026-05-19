@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **AllowSourceCode** | **bool** | Set to true to allow source code in the input text and not redact it. | [optional] 
 **AllowIpAddress** | **bool** | Set to true to allow IP addresses in the input text and not redact them. | [optional] 
 **AllowMacAddress** | **bool** | Set to true to allow MAC addresses in the input text and not redact them. | [optional] 
-**RedactionMode** | **string** | Redaction mode: \&quot;Delete\&quot; to remove PII entirely, or \&quot;ReplaceWithAsterisk\&quot; to replace PII characters with asterisks (*). | [optional] 
+**RedactionMode** | **string** | Redaction mode: \&quot;SemanticTag\&quot; (default) replaces PII with a semantic tag in square brackets (e.g. [PHONE-NUMBER]), \&quot;Delete\&quot; removes PII entirely, or \&quot;ReplaceWithAsterisk\&quot; replaces PII characters with asterisks (*). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

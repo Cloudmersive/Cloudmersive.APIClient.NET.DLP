@@ -39,6 +39,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         /// <param name="containsEmailAddress">True if the input contains email addresses..</param>
         /// <param name="containsPhoneNumber">True if the input contains phone numbers..</param>
         /// <param name="containsStreetAddress">True if the input contains street addresses..</param>
+        /// <param name="containsCity">True if the input contains standalone city names (e.g. \&quot;San Francisco\&quot;) outside of a full street address..</param>
         /// <param name="containsPersonName">True if the input contains person names..</param>
         /// <param name="containsBirthDate">True if the input contains birth dates..</param>
         /// <param name="containsPassportNumber">True if the input contains passport numbers..</param>
@@ -60,6 +61,8 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         /// <param name="containsIpAddress">True if the input contains IP addresses..</param>
         /// <param name="containsMacAddress">True if the input contains MAC addresses..</param>
         /// <param name="containsHealthInsuranceMemberID">True if the input contains health insurance member IDs..</param>
+        /// <param name="containsMedicalRecordNumber">True if the input contains medical record numbers..</param>
+        /// <param name="containsBillingAccountNumber">True if the input contains billing account numbers (provider/customer billing account IDs, distinct from bank account numbers)..</param>
         /// <param name="containsHealthInjuryOrDisease">True if the input contains references to injuries or diseases..</param>
         /// <param name="containsHealthTypeOfTreatment">True if the input contains references to types of medical treatment..</param>
         /// <param name="containsHealthDateAndTimeOfTreatment">True if the input contains dates and times of medical treatment..</param>
@@ -71,13 +74,14 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         /// <param name="containsHealthUniversalRecordLocator">True if the input contains health universal record locators (URLs)..</param>
         /// <param name="containsBiometrics">True if the input contains biometric data references (e.g. fingerprints, retinal scans, voiceprints)..</param>
         /// <param name="analysisRationale">Rationale for why the conclusion was formed. Only populated when ProvideAnalysisRationale is set to true in the request..</param>
-        public DlpAdvancedRedactionResponse(string redactedText = default(string), bool cleanResult = default(bool), bool containsEmailAddress = default(bool), bool containsPhoneNumber = default(bool), bool containsStreetAddress = default(bool), bool containsPersonName = default(bool), bool containsBirthDate = default(bool), bool containsPassportNumber = default(bool), bool containsDriversLicense = default(bool), bool containsSocialSecurityNumber = default(bool), bool containsTaxpayerID = default(bool), bool containsCreditCardNumber = default(bool), bool containsCreditCardExpirationDate = default(bool), bool containsCreditCardVerificationCode = default(bool), bool containsBankAccountNumber = default(bool), bool containsIBAN = default(bool), bool containsHealthInsuranceNumber = default(bool), bool containsBearerToken = default(bool), bool containsHttpCookie = default(bool), bool containsPrivateKeys = default(bool), bool containsCredentials = default(bool), bool containsDeepWebUrls = default(bool), bool containsSourceCode = default(bool), bool containsIpAddress = default(bool), bool containsMacAddress = default(bool), bool containsHealthInsuranceMemberID = default(bool), bool containsHealthInjuryOrDisease = default(bool), bool containsHealthTypeOfTreatment = default(bool), bool containsHealthDateAndTimeOfTreatment = default(bool), bool containsHealthPlanBeneficiaryNumber = default(bool), bool containsHealthPaymentsMadeForTreatment = default(bool), bool containsVehicleID = default(bool), bool containsDeviceID = default(bool), bool containsNamesOfRelatives = default(bool), bool containsHealthUniversalRecordLocator = default(bool), bool containsBiometrics = default(bool), string analysisRationale = default(string))
+        public DlpAdvancedRedactionResponse(string redactedText = default(string), bool cleanResult = default(bool), bool containsEmailAddress = default(bool), bool containsPhoneNumber = default(bool), bool containsStreetAddress = default(bool), bool containsCity = default(bool), bool containsPersonName = default(bool), bool containsBirthDate = default(bool), bool containsPassportNumber = default(bool), bool containsDriversLicense = default(bool), bool containsSocialSecurityNumber = default(bool), bool containsTaxpayerID = default(bool), bool containsCreditCardNumber = default(bool), bool containsCreditCardExpirationDate = default(bool), bool containsCreditCardVerificationCode = default(bool), bool containsBankAccountNumber = default(bool), bool containsIBAN = default(bool), bool containsHealthInsuranceNumber = default(bool), bool containsBearerToken = default(bool), bool containsHttpCookie = default(bool), bool containsPrivateKeys = default(bool), bool containsCredentials = default(bool), bool containsDeepWebUrls = default(bool), bool containsSourceCode = default(bool), bool containsIpAddress = default(bool), bool containsMacAddress = default(bool), bool containsHealthInsuranceMemberID = default(bool), bool containsMedicalRecordNumber = default(bool), bool containsBillingAccountNumber = default(bool), bool containsHealthInjuryOrDisease = default(bool), bool containsHealthTypeOfTreatment = default(bool), bool containsHealthDateAndTimeOfTreatment = default(bool), bool containsHealthPlanBeneficiaryNumber = default(bool), bool containsHealthPaymentsMadeForTreatment = default(bool), bool containsVehicleID = default(bool), bool containsDeviceID = default(bool), bool containsNamesOfRelatives = default(bool), bool containsHealthUniversalRecordLocator = default(bool), bool containsBiometrics = default(bool), string analysisRationale = default(string))
         {
             this.RedactedText = redactedText;
             this.CleanResult = cleanResult;
             this.ContainsEmailAddress = containsEmailAddress;
             this.ContainsPhoneNumber = containsPhoneNumber;
             this.ContainsStreetAddress = containsStreetAddress;
+            this.ContainsCity = containsCity;
             this.ContainsPersonName = containsPersonName;
             this.ContainsBirthDate = containsBirthDate;
             this.ContainsPassportNumber = containsPassportNumber;
@@ -99,6 +103,8 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
             this.ContainsIpAddress = containsIpAddress;
             this.ContainsMacAddress = containsMacAddress;
             this.ContainsHealthInsuranceMemberID = containsHealthInsuranceMemberID;
+            this.ContainsMedicalRecordNumber = containsMedicalRecordNumber;
+            this.ContainsBillingAccountNumber = containsBillingAccountNumber;
             this.ContainsHealthInjuryOrDisease = containsHealthInjuryOrDisease;
             this.ContainsHealthTypeOfTreatment = containsHealthTypeOfTreatment;
             this.ContainsHealthDateAndTimeOfTreatment = containsHealthDateAndTimeOfTreatment;
@@ -146,6 +152,13 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         /// <value>True if the input contains street addresses.</value>
         [DataMember(Name = "ContainsStreetAddress", EmitDefaultValue = true)]
         public bool ContainsStreetAddress { get; set; }
+
+        /// <summary>
+        /// True if the input contains standalone city names (e.g. \&quot;San Francisco\&quot;) outside of a full street address.
+        /// </summary>
+        /// <value>True if the input contains standalone city names (e.g. \&quot;San Francisco\&quot;) outside of a full street address.</value>
+        [DataMember(Name = "ContainsCity", EmitDefaultValue = true)]
+        public bool ContainsCity { get; set; }
 
         /// <summary>
         /// True if the input contains person names.
@@ -295,6 +308,20 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         public bool ContainsHealthInsuranceMemberID { get; set; }
 
         /// <summary>
+        /// True if the input contains medical record numbers.
+        /// </summary>
+        /// <value>True if the input contains medical record numbers.</value>
+        [DataMember(Name = "ContainsMedicalRecordNumber", EmitDefaultValue = true)]
+        public bool ContainsMedicalRecordNumber { get; set; }
+
+        /// <summary>
+        /// True if the input contains billing account numbers (provider/customer billing account IDs, distinct from bank account numbers).
+        /// </summary>
+        /// <value>True if the input contains billing account numbers (provider/customer billing account IDs, distinct from bank account numbers).</value>
+        [DataMember(Name = "ContainsBillingAccountNumber", EmitDefaultValue = true)]
+        public bool ContainsBillingAccountNumber { get; set; }
+
+        /// <summary>
         /// True if the input contains references to injuries or diseases.
         /// </summary>
         /// <value>True if the input contains references to injuries or diseases.</value>
@@ -384,6 +411,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
             sb.Append("  ContainsEmailAddress: ").Append(ContainsEmailAddress).Append("\n");
             sb.Append("  ContainsPhoneNumber: ").Append(ContainsPhoneNumber).Append("\n");
             sb.Append("  ContainsStreetAddress: ").Append(ContainsStreetAddress).Append("\n");
+            sb.Append("  ContainsCity: ").Append(ContainsCity).Append("\n");
             sb.Append("  ContainsPersonName: ").Append(ContainsPersonName).Append("\n");
             sb.Append("  ContainsBirthDate: ").Append(ContainsBirthDate).Append("\n");
             sb.Append("  ContainsPassportNumber: ").Append(ContainsPassportNumber).Append("\n");
@@ -405,6 +433,8 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
             sb.Append("  ContainsIpAddress: ").Append(ContainsIpAddress).Append("\n");
             sb.Append("  ContainsMacAddress: ").Append(ContainsMacAddress).Append("\n");
             sb.Append("  ContainsHealthInsuranceMemberID: ").Append(ContainsHealthInsuranceMemberID).Append("\n");
+            sb.Append("  ContainsMedicalRecordNumber: ").Append(ContainsMedicalRecordNumber).Append("\n");
+            sb.Append("  ContainsBillingAccountNumber: ").Append(ContainsBillingAccountNumber).Append("\n");
             sb.Append("  ContainsHealthInjuryOrDisease: ").Append(ContainsHealthInjuryOrDisease).Append("\n");
             sb.Append("  ContainsHealthTypeOfTreatment: ").Append(ContainsHealthTypeOfTreatment).Append("\n");
             sb.Append("  ContainsHealthDateAndTimeOfTreatment: ").Append(ContainsHealthDateAndTimeOfTreatment).Append("\n");

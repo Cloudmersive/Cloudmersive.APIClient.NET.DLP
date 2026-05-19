@@ -4,10 +4,204 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**RedactAudio**](RedactApi.md#redactaudio) | **POST** /dlp/redact/audio | Redact User Data in Audio File |
+| [**RedactAudioAdvanced**](RedactApi.md#redactaudioadvanced) | **POST** /dlp/redact/audio/advanced | Redact User Data in Audio File (Advanced) |
 | [**RedactDocument**](RedactApi.md#redactdocument) | **POST** /dlp/redact/document | Redact User Data in Document |
 | [**RedactDocumentAdvanced**](RedactApi.md#redactdocumentadvanced) | **POST** /dlp/redact/document/advanced | Redact User Data in Document (Advanced) |
 | [**RedactText**](RedactApi.md#redacttext) | **POST** /dlp/redact/text | Redact User Data in Input Text |
 | [**RedactTextAdvanced**](RedactApi.md#redacttextadvanced) | **POST** /dlp/redact/text/advanced | Redact User Data in Input Text (Advanced) |
+
+<a id="redactaudio"></a>
+# **RedactAudio**
+> DlpAudioRedactionResponse RedactAudio (DlpAudioRedactionRequest body = null)
+
+Redact User Data in Audio File
+
+Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 23 configurable types of user data in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, and redacted segment timestamps.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Cloudmersive.APIClient.NET.DLP.Api;
+using Cloudmersive.APIClient.NET.DLP.Client;
+using Cloudmersive.APIClient.NET.DLP.Model;
+
+namespace Example
+{
+    public class RedactAudioExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure API key authorization: Apikey
+            config.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new RedactApi(config);
+            var body = new DlpAudioRedactionRequest(); // DlpAudioRedactionRequest | Input request (optional) 
+
+            try
+            {
+                // Redact User Data in Audio File
+                DlpAudioRedactionResponse result = apiInstance.RedactAudio(body);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling RedactApi.RedactAudio: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the RedactAudioWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Redact User Data in Audio File
+    ApiResponse<DlpAudioRedactionResponse> response = apiInstance.RedactAudioWithHttpInfo(body);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling RedactApi.RedactAudioWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **body** | [**DlpAudioRedactionRequest**](DlpAudioRedactionRequest.md) | Input request | [optional]  |
+
+### Return type
+
+[**DlpAudioRedactionResponse**](DlpAudioRedactionResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="redactaudioadvanced"></a>
+# **RedactAudioAdvanced**
+> DlpAdvancedAudioRedactionResponse RedactAudioAdvanced (DlpAdvancedAudioRedactionRequest body = null)
+
+Redact User Data in Audio File (Advanced)
+
+Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 34 configurable types of user data including health-related PHI in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, redacted segment timestamps, and optional rationale.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Cloudmersive.APIClient.NET.DLP.Api;
+using Cloudmersive.APIClient.NET.DLP.Client;
+using Cloudmersive.APIClient.NET.DLP.Model;
+
+namespace Example
+{
+    public class RedactAudioAdvancedExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure API key authorization: Apikey
+            config.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new RedactApi(config);
+            var body = new DlpAdvancedAudioRedactionRequest(); // DlpAdvancedAudioRedactionRequest | Input request (optional) 
+
+            try
+            {
+                // Redact User Data in Audio File (Advanced)
+                DlpAdvancedAudioRedactionResponse result = apiInstance.RedactAudioAdvanced(body);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling RedactApi.RedactAudioAdvanced: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the RedactAudioAdvancedWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Redact User Data in Audio File (Advanced)
+    ApiResponse<DlpAdvancedAudioRedactionResponse> response = apiInstance.RedactAudioAdvancedWithHttpInfo(body);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling RedactApi.RedactAudioAdvancedWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **body** | [**DlpAdvancedAudioRedactionRequest**](DlpAdvancedAudioRedactionRequest.md) | Input request | [optional]  |
+
+### Return type
+
+[**DlpAdvancedAudioRedactionResponse**](DlpAdvancedAudioRedactionResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="redactdocument"></a>
 # **RedactDocument**

@@ -158,6 +158,82 @@
         }
       }
     },
+    "/dlp/detect/audio": {
+      "post": {
+        "tags": [
+          "Detect"
+        ],
+        "summary": "Detect User Data in Audio File",
+        "description": "Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 23 configurable types of user data in the transcript using Advanced AI. Returns the full transcript, token timestamps, and detection results.",
+        "operationId": "DetectAudio",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpAudioDetectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpAudioDetectionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/detect/audio/advanced": {
+      "post": {
+        "tags": [
+          "Detect"
+        ],
+        "summary": "Detect User Data in Audio File (Advanced)",
+        "description": "Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 29 configurable types of user data including health-related PHI in the transcript using Advanced AI. Returns the full transcript, token timestamps, detection results, and optional rationale.",
+        "operationId": "DetectAudioAdvanced",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedAudioDetectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedAudioDetectionResponse"
+            }
+          }
+        }
+      }
+    },
     "/dlp/redact/text": {
       "post": {
         "tags": [
@@ -309,9 +385,1135 @@
           }
         }
       }
+    },
+    "/dlp/redact/audio": {
+      "post": {
+        "tags": [
+          "Redact"
+        ],
+        "summary": "Redact User Data in Audio File",
+        "description": "Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 23 configurable types of user data in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, and redacted segment timestamps.",
+        "operationId": "RedactAudio",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpAudioRedactionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpAudioRedactionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/redact/audio/advanced": {
+      "post": {
+        "tags": [
+          "Redact"
+        ],
+        "summary": "Redact User Data in Audio File (Advanced)",
+        "description": "Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 34 configurable types of user data including health-related PHI in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, redacted segment timestamps, and optional rationale.",
+        "operationId": "RedactAudioAdvanced",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedAudioRedactionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedAudioRedactionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/batch-job/detect/audio": {
+      "post": {
+        "tags": [
+          "TasksBatchJob"
+        ],
+        "summary": "Detect User Data in Audio File as a Batch Job",
+        "description": "Creates an async batch job for detecting user data in an audio file.  Use the GetAsyncJobStatus API to check on the status of the job and retrieve the result when complete.  Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 23 configurable types of user data in the transcript using Advanced AI. Returns the full transcript, token timestamps, and detection results.  Requires Managed Instance or Private Cloud deployment.",
+        "operationId": "DetectAudioBatchJob",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpAudioDetectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpBatchJobResult"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/batch-job/detect/audio/advanced": {
+      "post": {
+        "tags": [
+          "TasksBatchJob"
+        ],
+        "summary": "Detect User Data in Audio File (Advanced) as a Batch Job",
+        "description": "Creates an async batch job for detecting user data in an audio file using Advanced detection.  Use the GetAsyncJobStatus API to check on the status of the job and retrieve the result when complete.  Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 29 configurable types of user data including health-related PHI in the transcript using Advanced AI. Returns the full transcript, token timestamps, detection results, and optional rationale.  Requires Managed Instance or Private Cloud deployment.",
+        "operationId": "DetectAudioAdvancedBatchJob",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedAudioDetectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpBatchJobResult"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/batch-job/redact/audio": {
+      "post": {
+        "tags": [
+          "TasksBatchJob"
+        ],
+        "summary": "Redact User Data in Audio File as a Batch Job",
+        "description": "Creates an async batch job for redacting user data in an audio file.  Use the GetAsyncJobStatus API to check on the status of the job and retrieve the redacted audio and transcript when complete.  Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 23 configurable types of user data in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, and redacted segment timestamps.  Requires Managed Instance or Private Cloud deployment.",
+        "operationId": "RedactAudioBatchJob",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpAudioRedactionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpBatchJobResult"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/batch-job/redact/audio/advanced": {
+      "post": {
+        "tags": [
+          "TasksBatchJob"
+        ],
+        "summary": "Redact User Data in Audio File (Advanced) as a Batch Job",
+        "description": "Creates an async batch job for redacting user data in an audio file using Advanced detection.  Use the GetAsyncJobStatus API to check on the status of the job and retrieve the redacted audio and transcript when complete.  Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 34 configurable types of user data including health-related PHI in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, redacted segment timestamps, and optional rationale.  Requires Managed Instance or Private Cloud deployment.",
+        "operationId": "RedactAudioAdvancedBatchJob",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request",
+            "schema": {
+              "$ref": "#/definitions/DlpAdvancedAudioRedactionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpBatchJobResult"
+            }
+          }
+        }
+      }
+    },
+    "/dlp/batch-job/status": {
+      "get": {
+        "tags": [
+          "TasksBatchJob"
+        ],
+        "summary": "Get the status and result of a DLP Batch Job",
+        "description": "Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  When COMPLETED, the corresponding result field (detection or redaction result) is populated on the response.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.",
+        "operationId": "GetAsyncJobStatus",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "AsyncJobID",
+            "description": "Job ID for the batch job to get the status of",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DlpBatchJobStatusResult"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
+    "AudioTimestamp": {
+      "description": "A single token with its timestamp from speech recognition.",
+      "type": "object",
+      "properties": {
+        "Token": {
+          "description": "The word or token recognized from the audio.",
+          "type": "string"
+        },
+        "CharacterOffsetStart": {
+          "format": "int32",
+          "description": "Start position of the token in the transcript text (character offset).",
+          "type": "integer"
+        },
+        "CharacterOffsetEnd": {
+          "format": "int32",
+          "description": "End position of the token in the transcript text (character offset).",
+          "type": "integer"
+        },
+        "StartTimeMs": {
+          "format": "int64",
+          "description": "Start time of the token in the audio, in milliseconds.",
+          "type": "integer"
+        },
+        "EndTimeMs": {
+          "format": "int64",
+          "description": "End time of the token in the audio, in milliseconds.",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CustomPiiField": {
+      "description": "Caller-defined custom PII field. The redaction LLM will look for content matching\r\nthe description and redact it as a semantic tag derived from the title\r\n(e.g. title \"internal participant code\" → tag [INTERNAL-PARTICIPANT-CODE]).",
+      "type": "object",
+      "properties": {
+        "Title": {
+          "description": "Short title for the custom field, also used to derive the semantic tag (uppercased, spaces/underscores replaced with hyphens).",
+          "type": "string",
+          "example": "internal participant code"
+        },
+        "Description": {
+          "description": "Description of what this field looks like, used to instruct the redaction LLM. Be specific so the LLM can locate matches.",
+          "type": "string",
+          "example": "alphanumeric study or research participant identifier code (e.g. studyMDD90231)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAdvancedAudioDetectionRequest": {
+      "description": "Request object for advanced DLP audio detection with 29 PII detection types including health-related data.",
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Audio file bytes (WAV, MP3, M4A, FLAC, OGG, or WMA) to transcribe and scan for PII and sensitive data.",
+          "type": "string"
+        },
+        "LanguageCode": {
+          "description": "Language code for speech recognition. Default is \"ENG\" (English).",
+          "type": "string",
+          "example": "ENG"
+        },
+        "AllowEmailAddress": {
+          "description": "Set to true to allow email addresses in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPhoneNumber": {
+          "description": "Set to true to allow phone numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowStreetAddress": {
+          "description": "Set to true to allow street addresses in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCity": {
+          "description": "Set to true to allow standalone city names (e.g. \"San Francisco\") in the audio transcript and not flag them as PII. Applies to city names mentioned outside of a full street address.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPersonName": {
+          "description": "Set to true to allow person names in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBirthDate": {
+          "description": "Set to true to allow birth dates in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPassportNumber": {
+          "description": "Set to true to allow passport numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDriversLicense": {
+          "description": "Set to true to allow drivers license numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSocialSecurityNumber": {
+          "description": "Set to true to allow social security numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowTaxpayerID": {
+          "description": "Set to true to allow taxpayer IDs in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardNumber": {
+          "description": "Set to true to allow credit card numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardExpirationDate": {
+          "description": "Set to true to allow credit card expiration dates in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardVerificationCode": {
+          "description": "Set to true to allow credit card verification codes in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBankAccountNumber": {
+          "description": "Set to true to allow bank account numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIBAN": {
+          "description": "Set to true to allow IBANs in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceNumber": {
+          "description": "Set to true to allow health insurance numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBearerToken": {
+          "description": "Set to true to allow bearer tokens in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHttpCookie": {
+          "description": "Set to true to allow HTTP cookies in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPrivateKeys": {
+          "description": "Set to true to allow private keys in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCredentials": {
+          "description": "Set to true to allow credentials (usernames/passwords) in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeepWebUrls": {
+          "description": "Set to true to allow deep web URLs (.onion) in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSourceCode": {
+          "description": "Set to true to allow source code in the audio transcript and not flag it as sensitive data.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIpAddress": {
+          "description": "Set to true to allow IP addresses in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMacAddress": {
+          "description": "Set to true to allow MAC addresses in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceMemberID": {
+          "description": "Set to true to allow health insurance member IDs in the audio transcript and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMedicalRecordNumber": {
+          "description": "Set to true to allow medical record numbers in the audio transcript and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBillingAccountNumber": {
+          "description": "Set to true to allow billing account numbers (e.g. provider/customer billing account IDs, distinct from bank account numbers) in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInjuryOrDisease": {
+          "description": "Set to true to allow references to injuries or diseases in the audio transcript and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthTypeOfTreatment": {
+          "description": "Set to true to allow references to types of medical treatment in the audio transcript and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthDateAndTimeOfTreatment": {
+          "description": "Set to true to allow dates and times of medical treatment in the audio transcript and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthPlanBeneficiaryNumber": {
+          "description": "Set to true to allow health plan beneficiary numbers in the audio transcript and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthPaymentsMadeForTreatment": {
+          "description": "Set to true to allow payments made for medical treatment in the audio transcript and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowVehicleID": {
+          "description": "Set to true to allow vehicle identifiers (e.g. license plates, VINs) in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeviceID": {
+          "description": "Set to true to allow device identifiers (e.g. serial numbers, IMEIs, MAC-level device IDs) in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowNamesOfRelatives": {
+          "description": "Set to true to allow names of relatives in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthUniversalRecordLocator": {
+          "description": "Set to true to allow health universal record locators (URLs) in the audio transcript and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBiometrics": {
+          "description": "Set to true to allow biometric data references (e.g. fingerprints, retinal scans, voiceprints) in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "ProvideAnalysisRationale": {
+          "description": "Set to true to include a natural language rationale explaining why each detection conclusion was formed.",
+          "type": "boolean"
+        },
+        "CustomPolicyID": {
+          "description": "Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,\r\nnavigate to the Cloudmersive Management Portal and select Custom Policies.\r\nRequires Managed Instance or Private Cloud",
+          "type": "string",
+          "example": ""
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAdvancedAudioDetectionResponse": {
+      "description": "Response object for advanced DLP audio detection with 34 PII detection types, transcript, timestamps, and optional rationale.",
+      "type": "object",
+      "properties": {
+        "CleanResult": {
+          "description": "True if no disallowed PII or sensitive data types were detected; false if any disallowed type was found.",
+          "type": "boolean"
+        },
+        "Transcript": {
+          "description": "Full transcript of the audio file.",
+          "type": "string"
+        },
+        "Timestamps": {
+          "description": "Token-level timestamps from speech recognition.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AudioTimestamp"
+          }
+        },
+        "ContainsEmailAddress": {
+          "description": "True if the audio transcript contains email addresses.",
+          "type": "boolean"
+        },
+        "ContainsPhoneNumber": {
+          "description": "True if the audio transcript contains phone numbers.",
+          "type": "boolean"
+        },
+        "ContainsStreetAddress": {
+          "description": "True if the audio transcript contains street addresses.",
+          "type": "boolean"
+        },
+        "ContainsCity": {
+          "description": "True if the audio transcript contains standalone city names (e.g. \"San Francisco\") outside of a full street address.",
+          "type": "boolean"
+        },
+        "ContainsPersonName": {
+          "description": "True if the audio transcript contains person names.",
+          "type": "boolean"
+        },
+        "ContainsBirthDate": {
+          "description": "True if the audio transcript contains birth dates.",
+          "type": "boolean"
+        },
+        "ContainsPassportNumber": {
+          "description": "True if the audio transcript contains passport numbers.",
+          "type": "boolean"
+        },
+        "ContainsDriversLicense": {
+          "description": "True if the audio transcript contains drivers license numbers.",
+          "type": "boolean"
+        },
+        "ContainsSocialSecurityNumber": {
+          "description": "True if the audio transcript contains social security numbers.",
+          "type": "boolean"
+        },
+        "ContainsTaxpayerID": {
+          "description": "True if the audio transcript contains taxpayer IDs.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardNumber": {
+          "description": "True if the audio transcript contains credit card numbers.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardExpirationDate": {
+          "description": "True if the audio transcript contains credit card expiration dates.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardVerificationCode": {
+          "description": "True if the audio transcript contains credit card verification codes.",
+          "type": "boolean"
+        },
+        "ContainsBankAccountNumber": {
+          "description": "True if the audio transcript contains bank account numbers.",
+          "type": "boolean"
+        },
+        "ContainsIBAN": {
+          "description": "True if the audio transcript contains IBANs.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceNumber": {
+          "description": "True if the audio transcript contains health insurance numbers.",
+          "type": "boolean"
+        },
+        "ContainsBearerToken": {
+          "description": "True if the audio transcript contains bearer tokens.",
+          "type": "boolean"
+        },
+        "ContainsHttpCookie": {
+          "description": "True if the audio transcript contains HTTP cookies.",
+          "type": "boolean"
+        },
+        "ContainsPrivateKeys": {
+          "description": "True if the audio transcript contains private keys.",
+          "type": "boolean"
+        },
+        "ContainsCredentials": {
+          "description": "True if the audio transcript contains credentials (usernames/passwords).",
+          "type": "boolean"
+        },
+        "ContainsDeepWebUrls": {
+          "description": "True if the audio transcript contains deep web URLs (.onion).",
+          "type": "boolean"
+        },
+        "ContainsSourceCode": {
+          "description": "True if the audio transcript contains source code.",
+          "type": "boolean"
+        },
+        "ContainsIpAddress": {
+          "description": "True if the audio transcript contains IP addresses.",
+          "type": "boolean"
+        },
+        "ContainsMacAddress": {
+          "description": "True if the audio transcript contains MAC addresses.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceMemberID": {
+          "description": "True if the audio transcript contains health insurance member IDs.",
+          "type": "boolean"
+        },
+        "ContainsMedicalRecordNumber": {
+          "description": "True if the audio transcript contains medical record numbers.",
+          "type": "boolean"
+        },
+        "ContainsBillingAccountNumber": {
+          "description": "True if the audio transcript contains billing account numbers (provider/customer billing account IDs, distinct from bank account numbers).",
+          "type": "boolean"
+        },
+        "ContainsHealthInjuryOrDisease": {
+          "description": "True if the audio transcript contains references to injuries or diseases.",
+          "type": "boolean"
+        },
+        "ContainsHealthTypeOfTreatment": {
+          "description": "True if the audio transcript contains references to types of medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsHealthDateAndTimeOfTreatment": {
+          "description": "True if the audio transcript contains dates and times of medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsHealthPlanBeneficiaryNumber": {
+          "description": "True if the audio transcript contains health plan beneficiary numbers.",
+          "type": "boolean"
+        },
+        "ContainsHealthPaymentsMadeForTreatment": {
+          "description": "True if the audio transcript contains payments made for medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsVehicleID": {
+          "description": "True if the audio transcript contains vehicle identifiers (e.g. license plates, VINs).",
+          "type": "boolean"
+        },
+        "ContainsDeviceID": {
+          "description": "True if the audio transcript contains device identifiers (e.g. serial numbers, IMEIs, MAC-level device IDs).",
+          "type": "boolean"
+        },
+        "ContainsNamesOfRelatives": {
+          "description": "True if the audio transcript contains names of relatives.",
+          "type": "boolean"
+        },
+        "ContainsHealthUniversalRecordLocator": {
+          "description": "True if the audio transcript contains health universal record locators (URLs).",
+          "type": "boolean"
+        },
+        "ContainsBiometrics": {
+          "description": "True if the audio transcript contains biometric data references (e.g. fingerprints, retinal scans, voiceprints).",
+          "type": "boolean"
+        },
+        "AnalysisRationale": {
+          "description": "Rationale for why the conclusion was formed. Only populated when ProvideAnalysisRationale is set to true in the request.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAdvancedAudioRedactionRequest": {
+      "description": "Request object for advanced DLP audio redaction with 29 PII detection types including health-related data.",
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Audio file bytes (WAV, MP3, M4A, FLAC, OGG, or WMA) to transcribe, scan for PII, and redact.",
+          "type": "string"
+        },
+        "LanguageCode": {
+          "description": "Language code for speech recognition. Default is \"ENG\" (English).",
+          "type": "string",
+          "example": "ENG"
+        },
+        "AllowEmailAddress": {
+          "description": "Set to true to allow email addresses in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPhoneNumber": {
+          "description": "Set to true to allow phone numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowStreetAddress": {
+          "description": "Set to true to allow street addresses in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCity": {
+          "description": "Set to true to allow standalone city names (e.g. \"San Francisco\") in the audio transcript and not redact them. Applies to city names mentioned outside of a full street address.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPersonName": {
+          "description": "Set to true to allow person names in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBirthDate": {
+          "description": "Set to true to allow birth dates in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPassportNumber": {
+          "description": "Set to true to allow passport numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDriversLicense": {
+          "description": "Set to true to allow drivers license numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSocialSecurityNumber": {
+          "description": "Set to true to allow social security numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowTaxpayerID": {
+          "description": "Set to true to allow taxpayer IDs in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardNumber": {
+          "description": "Set to true to allow credit card numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardExpirationDate": {
+          "description": "Set to true to allow credit card expiration dates in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardVerificationCode": {
+          "description": "Set to true to allow credit card verification codes in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBankAccountNumber": {
+          "description": "Set to true to allow bank account numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIBAN": {
+          "description": "Set to true to allow IBANs in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceNumber": {
+          "description": "Set to true to allow health insurance numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBearerToken": {
+          "description": "Set to true to allow bearer tokens in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHttpCookie": {
+          "description": "Set to true to allow HTTP cookies in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPrivateKeys": {
+          "description": "Set to true to allow private keys in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCredentials": {
+          "description": "Set to true to allow credentials (usernames/passwords) in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeepWebUrls": {
+          "description": "Set to true to allow deep web URLs (.onion) in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSourceCode": {
+          "description": "Set to true to allow source code in the audio transcript and not redact it.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIpAddress": {
+          "description": "Set to true to allow IP addresses in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMacAddress": {
+          "description": "Set to true to allow MAC addresses in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceMemberID": {
+          "description": "Set to true to allow health insurance member IDs in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMedicalRecordNumber": {
+          "description": "Set to true to allow medical record numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBillingAccountNumber": {
+          "description": "Set to true to allow billing account numbers (e.g. provider/customer billing account IDs, distinct from bank account numbers) in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInjuryOrDisease": {
+          "description": "Set to true to allow references to injuries or diseases in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthTypeOfTreatment": {
+          "description": "Set to true to allow references to types of medical treatment in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthDateAndTimeOfTreatment": {
+          "description": "Set to true to allow dates and times of medical treatment in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthPlanBeneficiaryNumber": {
+          "description": "Set to true to allow health plan beneficiary numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthPaymentsMadeForTreatment": {
+          "description": "Set to true to allow payments made for medical treatment in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowVehicleID": {
+          "description": "Set to true to allow vehicle identifiers (e.g. license plates, VINs) in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeviceID": {
+          "description": "Set to true to allow device identifiers (e.g. serial numbers, IMEIs, MAC-level device IDs) in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowNamesOfRelatives": {
+          "description": "Set to true to allow names of relatives in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthUniversalRecordLocator": {
+          "description": "Set to true to allow health universal record locators (URLs) in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBiometrics": {
+          "description": "Set to true to allow biometric data references (e.g. fingerprints, retinal scans, voiceprints) in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "RedactionMode": {
+          "description": "Redaction mode for audio: \"Bleep\" (default) replaces redacted audio segments with a bleep tone, or \"Mute\" zeroes out the audio for the redacted portions.",
+          "type": "string",
+          "example": "Bleep"
+        },
+        "TranscriptRedactionMode": {
+          "description": "Redaction mode for the transcript text: \"SemanticTag\" (default) replaces PII with a semantic tag in square brackets (e.g. [PHONE-NUMBER]), \"Delete\" removes PII entirely, or \"ReplaceWithAsterisk\" replaces PII characters with asterisks (*).",
+          "type": "string",
+          "example": "SemanticTag"
+        },
+        "ProvideAnalysisRationale": {
+          "description": "Set to true to include a natural language rationale explaining why each detection conclusion was formed.",
+          "type": "boolean",
+          "example": true
+        },
+        "CustomPolicyID": {
+          "description": "Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,\r\nnavigate to the Cloudmersive Management Portal and select Custom Policies.\r\nRequires Managed Instance or Private Cloud",
+          "type": "string",
+          "example": ""
+        },
+        "CustomFields": {
+          "description": "Optional list of caller-defined custom PII fields to detect and redact in addition\r\nto the built-in categories. Each entry has a Title (used to derive the redaction\r\ntag, e.g. \"internal participant code\" → [INTERNAL-PARTICIPANT-CODE]) and a\r\nDescription telling the redaction LLM what the field looks like. Default null.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomPiiField"
+          }
+        },
+        "ExpandRedactionByCharacters": {
+          "format": "int32",
+          "description": "Optional override for the audio bleep/mute span padding. When set, expands each\r\ndetected redaction range by this many CHARACTERS on each side before mapping to\r\naudio tokens (instead of the default token-radius expansion controlled by the\r\nDlpApi_Audio_ExpandRedactionByTokenRadius cloud configuration). Leave null to\r\nuse the default token-radius behavior.",
+          "type": "integer"
+        },
+        "ExpandRedactionByMs": {
+          "format": "int32",
+          "description": "Optional override for the audio bleep/mute span padding, expressed in MILLISECONDS.\r\nWhen set, the audio segment for each detected redaction starts this many ms earlier\r\nand ends this many ms later than the raw token-aligned span (clamped to >= 0 ms at\r\nthe start). When set, this REPLACES both the token-radius expansion and the\r\nExpandRedactionByCharacters override. Leave null to fall back to the character or\r\ntoken-based expansion modes.",
+          "type": "integer"
+        },
+        "SpeechRecognitionMode": {
+          "description": "Optional. Speech recognition mode used when transcribing the audio for redaction. Available values: \"Fast\", \"Normal\", or \"Advanced\". Defaults to \"Normal\" when not specified.",
+          "type": "string",
+          "example": ""
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAdvancedAudioRedactionResponse": {
+      "description": "Response object for advanced DLP audio redaction with 34 PII detection results, redacted audio, redacted transcript, and optional rationale.",
+      "type": "object",
+      "properties": {
+        "RedactedAudio": {
+          "format": "byte",
+          "description": "The redacted audio file bytes with PII segments bleeped or muted, or the original audio if no disallowed PII was found.",
+          "type": "string"
+        },
+        "RedactedTranscript": {
+          "description": "The redacted transcript text with PII removed or replaced.",
+          "type": "string"
+        },
+        "OriginalTranscript": {
+          "description": "Full original transcript of the audio file.",
+          "type": "string"
+        },
+        "Timestamps": {
+          "description": "Token-level timestamps from speech recognition.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AudioTimestamp"
+          }
+        },
+        "RedactedSegments": {
+          "description": "List of audio segments that were redacted, with their time ranges.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RedactedAudioSegment"
+          }
+        },
+        "CleanResult": {
+          "description": "True if no disallowed PII or sensitive data types were detected; false if any disallowed type was found and redacted.",
+          "type": "boolean"
+        },
+        "ContainsEmailAddress": {
+          "description": "True if the audio transcript contains email addresses.",
+          "type": "boolean"
+        },
+        "ContainsPhoneNumber": {
+          "description": "True if the audio transcript contains phone numbers.",
+          "type": "boolean"
+        },
+        "ContainsStreetAddress": {
+          "description": "True if the audio transcript contains street addresses.",
+          "type": "boolean"
+        },
+        "ContainsCity": {
+          "description": "True if the audio transcript contains standalone city names (e.g. \"San Francisco\") outside of a full street address.",
+          "type": "boolean"
+        },
+        "ContainsPersonName": {
+          "description": "True if the audio transcript contains person names.",
+          "type": "boolean"
+        },
+        "ContainsBirthDate": {
+          "description": "True if the audio transcript contains birth dates.",
+          "type": "boolean"
+        },
+        "ContainsPassportNumber": {
+          "description": "True if the audio transcript contains passport numbers.",
+          "type": "boolean"
+        },
+        "ContainsDriversLicense": {
+          "description": "True if the audio transcript contains drivers license numbers.",
+          "type": "boolean"
+        },
+        "ContainsSocialSecurityNumber": {
+          "description": "True if the audio transcript contains social security numbers.",
+          "type": "boolean"
+        },
+        "ContainsTaxpayerID": {
+          "description": "True if the audio transcript contains taxpayer IDs.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardNumber": {
+          "description": "True if the audio transcript contains credit card numbers.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardExpirationDate": {
+          "description": "True if the audio transcript contains credit card expiration dates.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardVerificationCode": {
+          "description": "True if the audio transcript contains credit card verification codes.",
+          "type": "boolean"
+        },
+        "ContainsBankAccountNumber": {
+          "description": "True if the audio transcript contains bank account numbers.",
+          "type": "boolean"
+        },
+        "ContainsIBAN": {
+          "description": "True if the audio transcript contains IBANs.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceNumber": {
+          "description": "True if the audio transcript contains health insurance numbers.",
+          "type": "boolean"
+        },
+        "ContainsBearerToken": {
+          "description": "True if the audio transcript contains bearer tokens.",
+          "type": "boolean"
+        },
+        "ContainsHttpCookie": {
+          "description": "True if the audio transcript contains HTTP cookies.",
+          "type": "boolean"
+        },
+        "ContainsPrivateKeys": {
+          "description": "True if the audio transcript contains private keys.",
+          "type": "boolean"
+        },
+        "ContainsCredentials": {
+          "description": "True if the audio transcript contains credentials (usernames/passwords).",
+          "type": "boolean"
+        },
+        "ContainsDeepWebUrls": {
+          "description": "True if the audio transcript contains deep web URLs (.onion).",
+          "type": "boolean"
+        },
+        "ContainsSourceCode": {
+          "description": "True if the audio transcript contains source code.",
+          "type": "boolean"
+        },
+        "ContainsIpAddress": {
+          "description": "True if the audio transcript contains IP addresses.",
+          "type": "boolean"
+        },
+        "ContainsMacAddress": {
+          "description": "True if the audio transcript contains MAC addresses.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceMemberID": {
+          "description": "True if the audio transcript contains health insurance member IDs.",
+          "type": "boolean"
+        },
+        "ContainsMedicalRecordNumber": {
+          "description": "True if the audio transcript contains medical record numbers.",
+          "type": "boolean"
+        },
+        "ContainsBillingAccountNumber": {
+          "description": "True if the audio transcript contains billing account numbers (provider/customer billing account IDs, distinct from bank account numbers).",
+          "type": "boolean"
+        },
+        "ContainsHealthInjuryOrDisease": {
+          "description": "True if the audio transcript contains references to injuries or diseases.",
+          "type": "boolean"
+        },
+        "ContainsHealthTypeOfTreatment": {
+          "description": "True if the audio transcript contains references to types of medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsHealthDateAndTimeOfTreatment": {
+          "description": "True if the audio transcript contains dates and times of medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsHealthPlanBeneficiaryNumber": {
+          "description": "True if the audio transcript contains health plan beneficiary numbers.",
+          "type": "boolean"
+        },
+        "ContainsHealthPaymentsMadeForTreatment": {
+          "description": "True if the audio transcript contains payments made for medical treatment.",
+          "type": "boolean"
+        },
+        "ContainsVehicleID": {
+          "description": "True if the audio transcript contains vehicle identifiers (e.g. license plates, VINs).",
+          "type": "boolean"
+        },
+        "ContainsDeviceID": {
+          "description": "True if the audio transcript contains device identifiers (e.g. serial numbers, IMEIs, MAC-level device IDs).",
+          "type": "boolean"
+        },
+        "ContainsNamesOfRelatives": {
+          "description": "True if the audio transcript contains names of relatives.",
+          "type": "boolean"
+        },
+        "ContainsHealthUniversalRecordLocator": {
+          "description": "True if the audio transcript contains health universal record locators (URLs).",
+          "type": "boolean"
+        },
+        "ContainsBiometrics": {
+          "description": "True if the audio transcript contains biometric data references (e.g. fingerprints, retinal scans, voiceprints).",
+          "type": "boolean"
+        },
+        "AnalysisRationale": {
+          "description": "Rationale for why the conclusion was formed. Only populated when ProvideAnalysisRationale is set to true in the request.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "DlpAdvancedDetectionRequest": {
       "description": "Request object for advanced DLP text detection with 29 PII detection types including health-related data.",
       "type": "object",
@@ -333,6 +1535,11 @@
         },
         "AllowStreetAddress": {
           "description": "Set to true to allow street addresses in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCity": {
+          "description": "Set to true to allow standalone city names (e.g. \"San Francisco\") in the input text and not flag them as PII. Applies to city names mentioned outside of a full street address.",
           "type": "boolean",
           "example": false
         },
@@ -441,6 +1648,16 @@
           "type": "boolean",
           "example": false
         },
+        "AllowMedicalRecordNumber": {
+          "description": "Set to true to allow medical record numbers in the input text and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBillingAccountNumber": {
+          "description": "Set to true to allow billing account numbers (e.g. provider/customer billing account IDs, distinct from bank account numbers) in the input text and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
         "AllowHealthInjuryOrDisease": {
           "description": "Set to true to allow references to injuries or diseases in the input text and not flag them as PHI.",
           "type": "boolean",
@@ -521,6 +1738,10 @@
         },
         "ContainsStreetAddress": {
           "description": "True if the input text contains street addresses.",
+          "type": "boolean"
+        },
+        "ContainsCity": {
+          "description": "True if the input text contains standalone city names (e.g. \"San Francisco\") outside of a full street address.",
           "type": "boolean"
         },
         "ContainsPersonName": {
@@ -607,6 +1828,14 @@
           "description": "True if the input text contains health insurance member IDs.",
           "type": "boolean"
         },
+        "ContainsMedicalRecordNumber": {
+          "description": "True if the input text contains medical record numbers.",
+          "type": "boolean"
+        },
+        "ContainsBillingAccountNumber": {
+          "description": "True if the input text contains billing account numbers (provider/customer billing account IDs, distinct from bank account numbers).",
+          "type": "boolean"
+        },
         "ContainsHealthInjuryOrDisease": {
           "description": "True if the input text contains references to injuries or diseases.",
           "type": "boolean"
@@ -673,7 +1902,7 @@
           "example": "input.pdf"
         },
         "RecognitionMode": {
-          "description": "Optional. Recognition mode for image processing. Options: null (default), \"Fast\", \"FastPlus\", \"FastMini\".",
+          "description": "Optional. Recognition mode for image processing. Options: null (default), \"Normal\", \"Advanced\", \"Fast\", \"FastPlus\", \"FastMini\".",
           "type": "string",
           "example": ""
         },
@@ -689,6 +1918,11 @@
         },
         "AllowStreetAddress": {
           "description": "Set to true to allow street addresses in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCity": {
+          "description": "Set to true to allow standalone city names (e.g. \"San Francisco\") in the document and not flag them as PII. Applies to city names mentioned outside of a full street address.",
           "type": "boolean",
           "example": false
         },
@@ -797,6 +2031,16 @@
           "type": "boolean",
           "example": false
         },
+        "AllowMedicalRecordNumber": {
+          "description": "Set to true to allow medical record numbers in the document and not flag them as PHI.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBillingAccountNumber": {
+          "description": "Set to true to allow billing account numbers (e.g. provider/customer billing account IDs, distinct from bank account numbers) in the document and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
         "AllowHealthInjuryOrDisease": {
           "description": "Set to true to allow references to injuries or diseases in the document and not flag them as PHI.",
           "type": "boolean",
@@ -879,7 +2123,7 @@
           "example": "input.pdf"
         },
         "RecognitionMode": {
-          "description": "Optional. Recognition mode for image processing. Options: null (default), \"Fast\", \"FastPlus\", \"FastMini\".",
+          "description": "Optional. Recognition mode for image processing. Options: null (default), \"Normal\", \"Advanced\", \"Fast\", \"FastPlus\", \"FastMini\".",
           "type": "string",
           "example": ""
         },
@@ -900,6 +2144,11 @@
         },
         "AllowStreetAddress": {
           "description": "Set to true to allow street addresses in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCity": {
+          "description": "Set to true to allow standalone city names (e.g. \"San Francisco\") in the document and not redact them. Applies to city names mentioned outside of a full street address.",
           "type": "boolean",
           "example": false
         },
@@ -1008,6 +2257,16 @@
           "type": "boolean",
           "example": false
         },
+        "AllowMedicalRecordNumber": {
+          "description": "Set to true to allow medical record numbers in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBillingAccountNumber": {
+          "description": "Set to true to allow billing account numbers (e.g. provider/customer billing account IDs, distinct from bank account numbers) in the document and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
         "AllowHealthInjuryOrDisease": {
           "description": "Set to true to allow references to injuries or diseases in the document and not redact them.",
           "type": "boolean",
@@ -1072,6 +2331,13 @@
           "description": "Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,\r\nnavigate to the Cloudmersive Management Portal and select Custom Policies.\r\nRequires Managed Instance or Private Cloud",
           "type": "string",
           "example": ""
+        },
+        "CustomFields": {
+          "description": "Optional list of caller-defined custom PII fields to detect and redact in addition\r\nto the built-in categories. Each entry has a Title (used to derive the redaction\r\ntag, e.g. \"internal participant code\" → [INTERNAL-PARTICIPANT-CODE]) and a\r\nDescription telling the redaction LLM what the field looks like. Default null.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomPiiField"
+          }
         }
       },
       "additionalProperties": false
@@ -1099,6 +2365,10 @@
         },
         "ContainsStreetAddress": {
           "description": "True if the document contains street addresses.",
+          "type": "boolean"
+        },
+        "ContainsCity": {
+          "description": "True if the document contains standalone city names (e.g. \"San Francisco\") outside of a full street address.",
           "type": "boolean"
         },
         "ContainsPersonName": {
@@ -1185,6 +2455,14 @@
           "description": "True if the document contains health insurance member IDs.",
           "type": "boolean"
         },
+        "ContainsMedicalRecordNumber": {
+          "description": "True if the document contains medical record numbers.",
+          "type": "boolean"
+        },
+        "ContainsBillingAccountNumber": {
+          "description": "True if the document contains billing account numbers (provider/customer billing account IDs, distinct from bank account numbers).",
+          "type": "boolean"
+        },
         "ContainsHealthInjuryOrDisease": {
           "description": "True if the document contains references to injuries or diseases.",
           "type": "boolean"
@@ -1264,6 +2542,11 @@
         },
         "AllowStreetAddress": {
           "description": "Set to true to allow street addresses in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCity": {
+          "description": "Set to true to allow standalone city names (e.g. \"San Francisco\") in the input text and not redact them. Applies to city names mentioned outside of a full street address.",
           "type": "boolean",
           "example": false
         },
@@ -1372,6 +2655,16 @@
           "type": "boolean",
           "example": false
         },
+        "AllowMedicalRecordNumber": {
+          "description": "Set to true to allow medical record numbers in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBillingAccountNumber": {
+          "description": "Set to true to allow billing account numbers (e.g. provider/customer billing account IDs, distinct from bank account numbers) in the input text and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
         "AllowHealthInjuryOrDisease": {
           "description": "Set to true to allow references to injuries or diseases in the input text and not redact them.",
           "type": "boolean",
@@ -1423,9 +2716,9 @@
           "example": false
         },
         "RedactionMode": {
-          "description": "Redaction mode: \"Delete\" to remove PII entirely, or \"ReplaceWithAsterisk\" to replace PII characters with asterisks (*).",
+          "description": "Redaction mode: \"SemanticTag\" (default) replaces PII with a semantic tag in square brackets (e.g. [PHONE-NUMBER]), \"Delete\" removes PII entirely, or \"ReplaceWithAsterisk\" replaces PII characters with asterisks (*).",
           "type": "string",
-          "example": "ReplaceWithAsterisk"
+          "example": "SemanticTag"
         },
         "ProvideAnalysisRationale": {
           "description": "Set to true to include a natural language rationale explaining why each detection conclusion was formed.",
@@ -1436,6 +2729,13 @@
           "description": "Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,\r\nnavigate to the Cloudmersive Management Portal and select Custom Policies.\r\nRequires Managed Instance or Private Cloud",
           "type": "string",
           "example": ""
+        },
+        "CustomFields": {
+          "description": "Optional list of caller-defined custom PII fields to detect and redact in addition\r\nto the built-in categories. Each entry has a Title (used to derive the redaction\r\ntag, e.g. \"internal participant code\" → [INTERNAL-PARTICIPANT-CODE]) and a\r\nDescription telling the redaction LLM what the field looks like. Default null.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomPiiField"
+          }
         }
       },
       "additionalProperties": false
@@ -1462,6 +2762,10 @@
         },
         "ContainsStreetAddress": {
           "description": "True if the input contains street addresses.",
+          "type": "boolean"
+        },
+        "ContainsCity": {
+          "description": "True if the input contains standalone city names (e.g. \"San Francisco\") outside of a full street address.",
           "type": "boolean"
         },
         "ContainsPersonName": {
@@ -1548,6 +2852,14 @@
           "description": "True if the input contains health insurance member IDs.",
           "type": "boolean"
         },
+        "ContainsMedicalRecordNumber": {
+          "description": "True if the input contains medical record numbers.",
+          "type": "boolean"
+        },
+        "ContainsBillingAccountNumber": {
+          "description": "True if the input contains billing account numbers (provider/customer billing account IDs, distinct from bank account numbers).",
+          "type": "boolean"
+        },
         "ContainsHealthInjuryOrDisease": {
           "description": "True if the input contains references to injuries or diseases.",
           "type": "boolean"
@@ -1590,6 +2902,579 @@
         },
         "AnalysisRationale": {
           "description": "Rationale for why the conclusion was formed. Only populated when ProvideAnalysisRationale is set to true in the request.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAudioDetectionRequest": {
+      "description": "Request object for DLP audio detection with 23 PII detection types.",
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Audio file bytes (WAV, MP3, M4A, FLAC, OGG, or WMA) to transcribe and scan for PII and sensitive data.",
+          "type": "string"
+        },
+        "LanguageCode": {
+          "description": "Language code for speech recognition. Default is \"ENG\" (English).",
+          "type": "string",
+          "example": "ENG"
+        },
+        "AllowEmailAddress": {
+          "description": "Set to true to allow email addresses in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPhoneNumber": {
+          "description": "Set to true to allow phone numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowStreetAddress": {
+          "description": "Set to true to allow street addresses in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPersonName": {
+          "description": "Set to true to allow person names in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBirthDate": {
+          "description": "Set to true to allow birth dates in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPassportNumber": {
+          "description": "Set to true to allow passport numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDriversLicense": {
+          "description": "Set to true to allow drivers license numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSocialSecurityNumber": {
+          "description": "Set to true to allow social security numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowTaxpayerID": {
+          "description": "Set to true to allow taxpayer IDs in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardNumber": {
+          "description": "Set to true to allow credit card numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardExpirationDate": {
+          "description": "Set to true to allow credit card expiration dates in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardVerificationCode": {
+          "description": "Set to true to allow credit card verification codes in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBankAccountNumber": {
+          "description": "Set to true to allow bank account numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIBAN": {
+          "description": "Set to true to allow IBANs in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceNumber": {
+          "description": "Set to true to allow health insurance numbers in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBearerToken": {
+          "description": "Set to true to allow bearer tokens in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHttpCookie": {
+          "description": "Set to true to allow HTTP cookies in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPrivateKeys": {
+          "description": "Set to true to allow private keys in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCredentials": {
+          "description": "Set to true to allow credentials (usernames/passwords) in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeepWebUrls": {
+          "description": "Set to true to allow deep web URLs (.onion) in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSourceCode": {
+          "description": "Set to true to allow source code in the audio transcript and not flag it as sensitive data.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIpAddress": {
+          "description": "Set to true to allow IP addresses in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMacAddress": {
+          "description": "Set to true to allow MAC addresses in the audio transcript and not flag them as PII.",
+          "type": "boolean",
+          "example": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAudioDetectionResponse": {
+      "description": "Response object for DLP audio detection with 23 PII detection types, transcript, and timestamps.",
+      "type": "object",
+      "properties": {
+        "CleanResult": {
+          "description": "True if no disallowed PII or sensitive data types were detected; false if any disallowed type was found.",
+          "type": "boolean"
+        },
+        "Transcript": {
+          "description": "Full transcript of the audio file.",
+          "type": "string"
+        },
+        "Timestamps": {
+          "description": "Token-level timestamps from speech recognition.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AudioTimestamp"
+          }
+        },
+        "ContainsEmailAddress": {
+          "description": "True if the audio transcript contains email addresses.",
+          "type": "boolean"
+        },
+        "ContainsPhoneNumber": {
+          "description": "True if the audio transcript contains phone numbers.",
+          "type": "boolean"
+        },
+        "ContainsStreetAddress": {
+          "description": "True if the audio transcript contains street addresses.",
+          "type": "boolean"
+        },
+        "ContainsPersonName": {
+          "description": "True if the audio transcript contains person names.",
+          "type": "boolean"
+        },
+        "ContainsBirthDate": {
+          "description": "True if the audio transcript contains birth dates.",
+          "type": "boolean"
+        },
+        "ContainsPassportNumber": {
+          "description": "True if the audio transcript contains passport numbers.",
+          "type": "boolean"
+        },
+        "ContainsDriversLicense": {
+          "description": "True if the audio transcript contains drivers license numbers.",
+          "type": "boolean"
+        },
+        "ContainsSocialSecurityNumber": {
+          "description": "True if the audio transcript contains social security numbers.",
+          "type": "boolean"
+        },
+        "ContainsTaxpayerID": {
+          "description": "True if the audio transcript contains taxpayer IDs.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardNumber": {
+          "description": "True if the audio transcript contains credit card numbers.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardExpirationDate": {
+          "description": "True if the audio transcript contains credit card expiration dates.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardVerificationCode": {
+          "description": "True if the audio transcript contains credit card verification codes.",
+          "type": "boolean"
+        },
+        "ContainsBankAccountNumber": {
+          "description": "True if the audio transcript contains bank account numbers.",
+          "type": "boolean"
+        },
+        "ContainsIBAN": {
+          "description": "True if the audio transcript contains IBANs.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceNumber": {
+          "description": "True if the audio transcript contains health insurance numbers.",
+          "type": "boolean"
+        },
+        "ContainsBearerToken": {
+          "description": "True if the audio transcript contains bearer tokens.",
+          "type": "boolean"
+        },
+        "ContainsHttpCookie": {
+          "description": "True if the audio transcript contains HTTP cookies.",
+          "type": "boolean"
+        },
+        "ContainsPrivateKeys": {
+          "description": "True if the audio transcript contains private keys.",
+          "type": "boolean"
+        },
+        "ContainsCredentials": {
+          "description": "True if the audio transcript contains credentials (usernames/passwords).",
+          "type": "boolean"
+        },
+        "ContainsDeepWebUrls": {
+          "description": "True if the audio transcript contains deep web URLs (.onion).",
+          "type": "boolean"
+        },
+        "ContainsSourceCode": {
+          "description": "True if the audio transcript contains source code.",
+          "type": "boolean"
+        },
+        "ContainsIpAddress": {
+          "description": "True if the audio transcript contains IP addresses.",
+          "type": "boolean"
+        },
+        "ContainsMacAddress": {
+          "description": "True if the audio transcript contains MAC addresses.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAudioRedactionRequest": {
+      "description": "Request object for DLP audio redaction with 23 PII detection types.",
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Audio file bytes (WAV, MP3, M4A, FLAC, OGG, or WMA) to transcribe, scan for PII, and redact.",
+          "type": "string"
+        },
+        "LanguageCode": {
+          "description": "Language code for speech recognition. Default is \"ENG\" (English).",
+          "type": "string",
+          "example": "ENG"
+        },
+        "AllowEmailAddress": {
+          "description": "Set to true to allow email addresses in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPhoneNumber": {
+          "description": "Set to true to allow phone numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowStreetAddress": {
+          "description": "Set to true to allow street addresses in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPersonName": {
+          "description": "Set to true to allow person names in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBirthDate": {
+          "description": "Set to true to allow birth dates in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPassportNumber": {
+          "description": "Set to true to allow passport numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDriversLicense": {
+          "description": "Set to true to allow drivers license numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSocialSecurityNumber": {
+          "description": "Set to true to allow social security numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowTaxpayerID": {
+          "description": "Set to true to allow taxpayer IDs in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardNumber": {
+          "description": "Set to true to allow credit card numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardExpirationDate": {
+          "description": "Set to true to allow credit card expiration dates in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCreditCardVerificationCode": {
+          "description": "Set to true to allow credit card verification codes in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBankAccountNumber": {
+          "description": "Set to true to allow bank account numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIBAN": {
+          "description": "Set to true to allow IBANs in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHealthInsuranceNumber": {
+          "description": "Set to true to allow health insurance numbers in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowBearerToken": {
+          "description": "Set to true to allow bearer tokens in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowHttpCookie": {
+          "description": "Set to true to allow HTTP cookies in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPrivateKeys": {
+          "description": "Set to true to allow private keys in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowCredentials": {
+          "description": "Set to true to allow credentials (usernames/passwords) in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowDeepWebUrls": {
+          "description": "Set to true to allow deep web URLs (.onion) in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowSourceCode": {
+          "description": "Set to true to allow source code in the audio transcript and not redact it.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowIpAddress": {
+          "description": "Set to true to allow IP addresses in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowMacAddress": {
+          "description": "Set to true to allow MAC addresses in the audio transcript and not redact them.",
+          "type": "boolean",
+          "example": false
+        },
+        "RedactionMode": {
+          "description": "Redaction mode for audio: \"Bleep\" (default) replaces redacted audio segments with a bleep tone, or \"Mute\" zeroes out the audio for the redacted portions.",
+          "type": "string",
+          "example": "Bleep"
+        },
+        "TranscriptRedactionMode": {
+          "description": "Redaction mode for the transcript text: \"SemanticTag\" (default) replaces PII with a semantic tag in square brackets (e.g. [PHONE-NUMBER]), \"Delete\" removes PII entirely, or \"ReplaceWithAsterisk\" replaces PII characters with asterisks (*).",
+          "type": "string",
+          "example": "SemanticTag"
+        },
+        "SpeechRecognitionMode": {
+          "description": "Optional. Speech recognition mode used when transcribing the audio for redaction. Available values: \"Fast\", \"Normal\", or \"Advanced\". Defaults to \"Normal\" when not specified.",
+          "type": "string",
+          "example": ""
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpAudioRedactionResponse": {
+      "description": "Response object for DLP audio redaction with 23 PII detection results, redacted audio, and redacted transcript.",
+      "type": "object",
+      "properties": {
+        "RedactedAudio": {
+          "format": "byte",
+          "description": "The redacted audio file bytes with PII segments bleeped or muted, or the original audio if no disallowed PII was found.",
+          "type": "string"
+        },
+        "RedactedTranscript": {
+          "description": "The redacted transcript text with PII removed or replaced.",
+          "type": "string"
+        },
+        "OriginalTranscript": {
+          "description": "Full original transcript of the audio file.",
+          "type": "string"
+        },
+        "Timestamps": {
+          "description": "Token-level timestamps from speech recognition.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AudioTimestamp"
+          }
+        },
+        "RedactedSegments": {
+          "description": "List of audio segments that were redacted, with their time ranges.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RedactedAudioSegment"
+          }
+        },
+        "CleanResult": {
+          "description": "True if no disallowed PII or sensitive data types were detected; false if any disallowed type was found and redacted.",
+          "type": "boolean"
+        },
+        "ContainsEmailAddress": {
+          "description": "True if the audio transcript contains email addresses.",
+          "type": "boolean"
+        },
+        "ContainsPhoneNumber": {
+          "description": "True if the audio transcript contains phone numbers.",
+          "type": "boolean"
+        },
+        "ContainsStreetAddress": {
+          "description": "True if the audio transcript contains street addresses.",
+          "type": "boolean"
+        },
+        "ContainsPersonName": {
+          "description": "True if the audio transcript contains person names.",
+          "type": "boolean"
+        },
+        "ContainsBirthDate": {
+          "description": "True if the audio transcript contains birth dates.",
+          "type": "boolean"
+        },
+        "ContainsPassportNumber": {
+          "description": "True if the audio transcript contains passport numbers.",
+          "type": "boolean"
+        },
+        "ContainsDriversLicense": {
+          "description": "True if the audio transcript contains drivers license numbers.",
+          "type": "boolean"
+        },
+        "ContainsSocialSecurityNumber": {
+          "description": "True if the audio transcript contains social security numbers.",
+          "type": "boolean"
+        },
+        "ContainsTaxpayerID": {
+          "description": "True if the audio transcript contains taxpayer IDs.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardNumber": {
+          "description": "True if the audio transcript contains credit card numbers.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardExpirationDate": {
+          "description": "True if the audio transcript contains credit card expiration dates.",
+          "type": "boolean"
+        },
+        "ContainsCreditCardVerificationCode": {
+          "description": "True if the audio transcript contains credit card verification codes.",
+          "type": "boolean"
+        },
+        "ContainsBankAccountNumber": {
+          "description": "True if the audio transcript contains bank account numbers.",
+          "type": "boolean"
+        },
+        "ContainsIBAN": {
+          "description": "True if the audio transcript contains IBANs.",
+          "type": "boolean"
+        },
+        "ContainsHealthInsuranceNumber": {
+          "description": "True if the audio transcript contains health insurance numbers.",
+          "type": "boolean"
+        },
+        "ContainsBearerToken": {
+          "description": "True if the audio transcript contains bearer tokens.",
+          "type": "boolean"
+        },
+        "ContainsHttpCookie": {
+          "description": "True if the audio transcript contains HTTP cookies.",
+          "type": "boolean"
+        },
+        "ContainsPrivateKeys": {
+          "description": "True if the audio transcript contains private keys.",
+          "type": "boolean"
+        },
+        "ContainsCredentials": {
+          "description": "True if the audio transcript contains credentials (usernames/passwords).",
+          "type": "boolean"
+        },
+        "ContainsDeepWebUrls": {
+          "description": "True if the audio transcript contains deep web URLs (.onion).",
+          "type": "boolean"
+        },
+        "ContainsSourceCode": {
+          "description": "True if the audio transcript contains source code.",
+          "type": "boolean"
+        },
+        "ContainsIpAddress": {
+          "description": "True if the audio transcript contains IP addresses.",
+          "type": "boolean"
+        },
+        "ContainsMacAddress": {
+          "description": "True if the audio transcript contains MAC addresses.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpBatchJobResult": {
+      "description": "Result of submitting a DLP batch job",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "AsyncJobID": {
+          "description": "When creating a job, an Async Job ID is returned.  Use the GetAsyncJobStatus API to check on the status of this job using the AsyncJobID and get the result when it finishes",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DlpBatchJobStatusResult": {
+      "description": "Result of performing a DLP batch job operation",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the operation to check the status of the job was successful, false otherwise",
+          "type": "boolean"
+        },
+        "AsyncJobStatus": {
+          "description": "Returns the job status of the Async Job, if applicable.  Possible states are STARTED and COMPLETED",
+          "type": "string"
+        },
+        "AsyncJobID": {
+          "description": "Job ID",
+          "type": "string"
+        },
+        "DetectAudioResult": {
+          "$ref": "#/definitions/DlpAudioDetectionResponse"
+        },
+        "DetectAudioAdvancedResult": {
+          "$ref": "#/definitions/DlpAdvancedAudioDetectionResponse"
+        },
+        "RedactAudioResult": {
+          "$ref": "#/definitions/DlpAudioRedactionResponse"
+        },
+        "RedactAudioAdvancedResult": {
+          "$ref": "#/definitions/DlpAdvancedAudioRedactionResponse"
+        },
+        "ErrorMessage": {
+          "description": "Error message (if any)",
           "type": "string"
         }
       },
@@ -1840,7 +3725,7 @@
           "example": "input.pdf"
         },
         "RecognitionMode": {
-          "description": "Optional. Recognition mode for image processing. Options: null (default), \"Fast\", \"FastPlus\", \"FastMini\".",
+          "description": "Optional. Recognition mode for image processing. Options: null (default), \"Normal\", \"Advanced\", \"Fast\", \"FastPlus\", \"FastMini\".",
           "type": "string",
           "example": ""
         },
@@ -1977,7 +3862,7 @@
           "example": "input.pdf"
         },
         "RecognitionMode": {
-          "description": "Optional. Recognition mode for image processing. Options: null (default), \"Fast\", \"FastPlus\", \"FastMini\".",
+          "description": "Optional. Recognition mode for image processing. Options: null (default), \"Normal\", \"Advanced\", \"Fast\", \"FastPlus\", \"FastMini\".",
           "type": "string",
           "example": ""
         },
@@ -2344,9 +4229,9 @@
           "example": false
         },
         "RedactionMode": {
-          "description": "Redaction mode: \"Delete\" to remove PII entirely, or \"ReplaceWithAsterisk\" to replace PII characters with asterisks (*).",
+          "description": "Redaction mode: \"SemanticTag\" (default) replaces PII with a semantic tag in square brackets (e.g. [PHONE-NUMBER]), \"Delete\" removes PII entirely, or \"ReplaceWithAsterisk\" replaces PII characters with asterisks (*).",
           "type": "string",
-          "example": "ReplaceWithAsterisk"
+          "example": "SemanticTag"
         }
       },
       "additionalProperties": false
@@ -2454,6 +4339,27 @@
         "ContainsMacAddress": {
           "description": "True if the input contains MAC addresses.",
           "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "RedactedAudioSegment": {
+      "description": "Represents a time range in the audio that was redacted.",
+      "type": "object",
+      "properties": {
+        "StartTimeMs": {
+          "format": "int64",
+          "description": "Start time of the redacted segment in the audio, in milliseconds.",
+          "type": "integer"
+        },
+        "EndTimeMs": {
+          "format": "int64",
+          "description": "End time of the redacted segment in the audio, in milliseconds.",
+          "type": "integer"
+        },
+        "RedactedText": {
+          "description": "The original text that was redacted in this segment.",
+          "type": "string"
         }
       },
       "additionalProperties": false

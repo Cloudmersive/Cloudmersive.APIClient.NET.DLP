@@ -55,6 +55,30 @@ namespace Cloudmersive.APIClient.NET.DLP.Test.Api
         }
 
         /// <summary>
+        /// Test DetectAudio
+        /// </summary>
+        [Fact]
+        public void DetectAudioTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //DlpAudioDetectionRequest body = null;
+            //var response = instance.DetectAudio(body);
+            //Assert.IsType<DlpAudioDetectionResponse>(response);
+        }
+
+        /// <summary>
+        /// Test DetectAudioAdvanced
+        /// </summary>
+        [Fact]
+        public void DetectAudioAdvancedTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //DlpAdvancedAudioDetectionRequest body = null;
+            //var response = instance.DetectAudioAdvanced(body);
+            //Assert.IsType<DlpAdvancedAudioDetectionResponse>(response);
+        }
+
+        /// <summary>
         /// Test DetectDocument
         /// </summary>
         [Fact]

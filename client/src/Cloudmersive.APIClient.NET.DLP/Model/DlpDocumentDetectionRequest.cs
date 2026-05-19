@@ -36,7 +36,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         /// </summary>
         /// <param name="inputFile">Document file bytes (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, or WEBP) to scan for PII and sensitive data..</param>
         /// <param name="fileName">Optional. Name of the input file including extension, used for format detection. If not provided, format is detected from file contents..</param>
-        /// <param name="recognitionMode">Optional. Recognition mode for image processing. Options: null (default), \&quot;Fast\&quot;, \&quot;FastPlus\&quot;, \&quot;FastMini\&quot;..</param>
+        /// <param name="recognitionMode">Optional. Recognition mode for image processing. Options: null (default), \&quot;Normal\&quot;, \&quot;Advanced\&quot;, \&quot;Fast\&quot;, \&quot;FastPlus\&quot;, \&quot;FastMini\&quot;..</param>
         /// <param name="allowEmailAddress">Set to true to allow email addresses in the document and not flag them as PII..</param>
         /// <param name="allowPhoneNumber">Set to true to allow phone numbers in the document and not flag them as PII..</param>
         /// <param name="allowStreetAddress">Set to true to allow street addresses in the document and not flag them as PII..</param>
@@ -108,9 +108,9 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         public string FileName { get; set; }
 
         /// <summary>
-        /// Optional. Recognition mode for image processing. Options: null (default), \&quot;Fast\&quot;, \&quot;FastPlus\&quot;, \&quot;FastMini\&quot;.
+        /// Optional. Recognition mode for image processing. Options: null (default), \&quot;Normal\&quot;, \&quot;Advanced\&quot;, \&quot;Fast\&quot;, \&quot;FastPlus\&quot;, \&quot;FastMini\&quot;.
         /// </summary>
-        /// <value>Optional. Recognition mode for image processing. Options: null (default), \&quot;Fast\&quot;, \&quot;FastPlus\&quot;, \&quot;FastMini\&quot;.</value>
+        /// <value>Optional. Recognition mode for image processing. Options: null (default), \&quot;Normal\&quot;, \&quot;Advanced\&quot;, \&quot;Fast\&quot;, \&quot;FastPlus\&quot;, \&quot;FastMini\&quot;.</value>
         [DataMember(Name = "RecognitionMode", EmitDefaultValue = false)]
         public string RecognitionMode { get; set; }
 

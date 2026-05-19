@@ -27,6 +27,52 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Detect User Data in Audio File
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 23 configurable types of user data in the transcript using Advanced AI. Returns the full transcript, token timestamps, and detection results.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DlpAudioDetectionResponse</returns>
+        DlpAudioDetectionResponse DetectAudio(DlpAudioDetectionRequest body = default(DlpAudioDetectionRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Detect User Data in Audio File
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 23 configurable types of user data in the transcript using Advanced AI. Returns the full transcript, token timestamps, and detection results.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DlpAudioDetectionResponse</returns>
+        ApiResponse<DlpAudioDetectionResponse> DetectAudioWithHttpInfo(DlpAudioDetectionRequest body = default(DlpAudioDetectionRequest), int operationIndex = 0);
+        /// <summary>
+        /// Detect User Data in Audio File (Advanced)
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 29 configurable types of user data including health-related PHI in the transcript using Advanced AI. Returns the full transcript, token timestamps, detection results, and optional rationale.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DlpAdvancedAudioDetectionResponse</returns>
+        DlpAdvancedAudioDetectionResponse DetectAudioAdvanced(DlpAdvancedAudioDetectionRequest body = default(DlpAdvancedAudioDetectionRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Detect User Data in Audio File (Advanced)
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 29 configurable types of user data including health-related PHI in the transcript using Advanced AI. Returns the full transcript, token timestamps, detection results, and optional rationale.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DlpAdvancedAudioDetectionResponse</returns>
+        ApiResponse<DlpAdvancedAudioDetectionResponse> DetectAudioAdvancedWithHttpInfo(DlpAdvancedAudioDetectionRequest body = default(DlpAdvancedAudioDetectionRequest), int operationIndex = 0);
+        /// <summary>
         /// Detect User Data in Document Image
         /// </summary>
         /// <remarks>
@@ -127,6 +173,56 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
     public interface IDetectApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Detect User Data in Audio File
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 23 configurable types of user data in the transcript using Advanced AI. Returns the full transcript, token timestamps, and detection results.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DlpAudioDetectionResponse</returns>
+        System.Threading.Tasks.Task<DlpAudioDetectionResponse> DetectAudioAsync(DlpAudioDetectionRequest body = default(DlpAudioDetectionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Detect User Data in Audio File
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 23 configurable types of user data in the transcript using Advanced AI. Returns the full transcript, token timestamps, and detection results.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DlpAudioDetectionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DlpAudioDetectionResponse>> DetectAudioWithHttpInfoAsync(DlpAudioDetectionRequest body = default(DlpAudioDetectionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Detect User Data in Audio File (Advanced)
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 29 configurable types of user data including health-related PHI in the transcript using Advanced AI. Returns the full transcript, token timestamps, detection results, and optional rationale.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DlpAdvancedAudioDetectionResponse</returns>
+        System.Threading.Tasks.Task<DlpAdvancedAudioDetectionResponse> DetectAudioAdvancedAsync(DlpAdvancedAudioDetectionRequest body = default(DlpAdvancedAudioDetectionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Detect User Data in Audio File (Advanced)
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 29 configurable types of user data including health-related PHI in the transcript using Advanced AI. Returns the full transcript, token timestamps, detection results, and optional rationale.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DlpAdvancedAudioDetectionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DlpAdvancedAudioDetectionResponse>> DetectAudioAdvancedWithHttpInfoAsync(DlpAdvancedAudioDetectionRequest body = default(DlpAdvancedAudioDetectionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Detect User Data in Document Image
         /// </summary>
@@ -345,6 +441,312 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Detect User Data in Audio File Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 23 configurable types of user data in the transcript using Advanced AI. Returns the full transcript, token timestamps, and detection results.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DlpAudioDetectionResponse</returns>
+        public DlpAudioDetectionResponse DetectAudio(DlpAudioDetectionRequest body = default(DlpAudioDetectionRequest), int operationIndex = 0)
+        {
+            Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAudioDetectionResponse> localVarResponse = DetectAudioWithHttpInfo(body);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Detect User Data in Audio File Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 23 configurable types of user data in the transcript using Advanced AI. Returns the full transcript, token timestamps, and detection results.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DlpAudioDetectionResponse</returns>
+        public Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAudioDetectionResponse> DetectAudioWithHttpInfo(DlpAudioDetectionRequest body = default(DlpAudioDetectionRequest), int operationIndex = 0)
+        {
+            Cloudmersive.APIClient.NET.DLP.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.DLP.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "DetectApi.DetectAudio";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (Apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Apikey", this.Configuration.GetApiKeyWithPrefix("Apikey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<DlpAudioDetectionResponse>("/dlp/detect/audio", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DetectAudio", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Detect User Data in Audio File Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 23 configurable types of user data in the transcript using Advanced AI. Returns the full transcript, token timestamps, and detection results.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DlpAudioDetectionResponse</returns>
+        public async System.Threading.Tasks.Task<DlpAudioDetectionResponse> DetectAudioAsync(DlpAudioDetectionRequest body = default(DlpAudioDetectionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAudioDetectionResponse> localVarResponse = await DetectAudioWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Detect User Data in Audio File Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 23 configurable types of user data in the transcript using Advanced AI. Returns the full transcript, token timestamps, and detection results.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DlpAudioDetectionResponse)</returns>
+        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAudioDetectionResponse>> DetectAudioWithHttpInfoAsync(DlpAudioDetectionRequest body = default(DlpAudioDetectionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Cloudmersive.APIClient.NET.DLP.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.DLP.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "DetectApi.DetectAudio";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (Apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Apikey", this.Configuration.GetApiKeyWithPrefix("Apikey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<DlpAudioDetectionResponse>("/dlp/detect/audio", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DetectAudio", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Detect User Data in Audio File (Advanced) Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 29 configurable types of user data including health-related PHI in the transcript using Advanced AI. Returns the full transcript, token timestamps, detection results, and optional rationale.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DlpAdvancedAudioDetectionResponse</returns>
+        public DlpAdvancedAudioDetectionResponse DetectAudioAdvanced(DlpAdvancedAudioDetectionRequest body = default(DlpAdvancedAudioDetectionRequest), int operationIndex = 0)
+        {
+            Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAdvancedAudioDetectionResponse> localVarResponse = DetectAudioAdvancedWithHttpInfo(body);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Detect User Data in Audio File (Advanced) Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 29 configurable types of user data including health-related PHI in the transcript using Advanced AI. Returns the full transcript, token timestamps, detection results, and optional rationale.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DlpAdvancedAudioDetectionResponse</returns>
+        public Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAdvancedAudioDetectionResponse> DetectAudioAdvancedWithHttpInfo(DlpAdvancedAudioDetectionRequest body = default(DlpAdvancedAudioDetectionRequest), int operationIndex = 0)
+        {
+            Cloudmersive.APIClient.NET.DLP.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.DLP.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "DetectApi.DetectAudioAdvanced";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (Apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Apikey", this.Configuration.GetApiKeyWithPrefix("Apikey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<DlpAdvancedAudioDetectionResponse>("/dlp/detect/audio/advanced", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DetectAudioAdvanced", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Detect User Data in Audio File (Advanced) Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 29 configurable types of user data including health-related PHI in the transcript using Advanced AI. Returns the full transcript, token timestamps, detection results, and optional rationale.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DlpAdvancedAudioDetectionResponse</returns>
+        public async System.Threading.Tasks.Task<DlpAdvancedAudioDetectionResponse> DetectAudioAdvancedAsync(DlpAdvancedAudioDetectionRequest body = default(DlpAdvancedAudioDetectionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAdvancedAudioDetectionResponse> localVarResponse = await DetectAudioAdvancedWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Detect User Data in Audio File (Advanced) Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA) and detects 29 configurable types of user data including health-related PHI in the transcript using Advanced AI. Returns the full transcript, token timestamps, detection results, and optional rationale.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DlpAdvancedAudioDetectionResponse)</returns>
+        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAdvancedAudioDetectionResponse>> DetectAudioAdvancedWithHttpInfoAsync(DlpAdvancedAudioDetectionRequest body = default(DlpAdvancedAudioDetectionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Cloudmersive.APIClient.NET.DLP.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.DLP.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "DetectApi.DetectAudioAdvanced";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (Apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Apikey", this.Configuration.GetApiKeyWithPrefix("Apikey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<DlpAdvancedAudioDetectionResponse>("/dlp/detect/audio/advanced", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DetectAudioAdvanced", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

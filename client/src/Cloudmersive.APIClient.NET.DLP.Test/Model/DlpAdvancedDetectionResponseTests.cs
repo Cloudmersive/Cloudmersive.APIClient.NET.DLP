@@ -91,6 +91,15 @@ namespace Cloudmersive.APIClient.NET.DLP.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'ContainsCity'
+        /// </summary>
+        [Fact]
+        public void ContainsCityTest()
+        {
+            // TODO unit test for the property 'ContainsCity'
+        }
+
+        /// <summary>
         /// Test the property 'ContainsPersonName'
         /// </summary>
         [Fact]
@@ -277,6 +286,24 @@ namespace Cloudmersive.APIClient.NET.DLP.Test.Model
         public void ContainsHealthInsuranceMemberIDTest()
         {
             // TODO unit test for the property 'ContainsHealthInsuranceMemberID'
+        }
+
+        /// <summary>
+        /// Test the property 'ContainsMedicalRecordNumber'
+        /// </summary>
+        [Fact]
+        public void ContainsMedicalRecordNumberTest()
+        {
+            // TODO unit test for the property 'ContainsMedicalRecordNumber'
+        }
+
+        /// <summary>
+        /// Test the property 'ContainsBillingAccountNumber'
+        /// </summary>
+        [Fact]
+        public void ContainsBillingAccountNumberTest()
+        {
+            // TODO unit test for the property 'ContainsBillingAccountNumber'
         }
 
         /// <summary>

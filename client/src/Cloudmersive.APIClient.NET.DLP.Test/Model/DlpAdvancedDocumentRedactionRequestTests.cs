@@ -118,6 +118,15 @@ namespace Cloudmersive.APIClient.NET.DLP.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AllowCity'
+        /// </summary>
+        [Fact]
+        public void AllowCityTest()
+        {
+            // TODO unit test for the property 'AllowCity'
+        }
+
+        /// <summary>
         /// Test the property 'AllowPersonName'
         /// </summary>
         [Fact]
@@ -307,6 +316,24 @@ namespace Cloudmersive.APIClient.NET.DLP.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AllowMedicalRecordNumber'
+        /// </summary>
+        [Fact]
+        public void AllowMedicalRecordNumberTest()
+        {
+            // TODO unit test for the property 'AllowMedicalRecordNumber'
+        }
+
+        /// <summary>
+        /// Test the property 'AllowBillingAccountNumber'
+        /// </summary>
+        [Fact]
+        public void AllowBillingAccountNumberTest()
+        {
+            // TODO unit test for the property 'AllowBillingAccountNumber'
+        }
+
+        /// <summary>
         /// Test the property 'AllowHealthInjuryOrDisease'
         /// </summary>
         [Fact]
@@ -421,6 +448,15 @@ namespace Cloudmersive.APIClient.NET.DLP.Test.Model
         public void CustomPolicyIDTest()
         {
             // TODO unit test for the property 'CustomPolicyID'
+        }
+
+        /// <summary>
+        /// Test the property 'CustomFields'
+        /// </summary>
+        [Fact]
+        public void CustomFieldsTest()
+        {
+            // TODO unit test for the property 'CustomFields'
         }
     }
 }

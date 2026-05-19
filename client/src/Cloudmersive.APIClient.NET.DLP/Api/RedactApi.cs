@@ -27,6 +27,52 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Redact User Data in Audio File
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 23 configurable types of user data in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, and redacted segment timestamps.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DlpAudioRedactionResponse</returns>
+        DlpAudioRedactionResponse RedactAudio(DlpAudioRedactionRequest body = default(DlpAudioRedactionRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Redact User Data in Audio File
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 23 configurable types of user data in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, and redacted segment timestamps.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DlpAudioRedactionResponse</returns>
+        ApiResponse<DlpAudioRedactionResponse> RedactAudioWithHttpInfo(DlpAudioRedactionRequest body = default(DlpAudioRedactionRequest), int operationIndex = 0);
+        /// <summary>
+        /// Redact User Data in Audio File (Advanced)
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 34 configurable types of user data including health-related PHI in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, redacted segment timestamps, and optional rationale.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DlpAdvancedAudioRedactionResponse</returns>
+        DlpAdvancedAudioRedactionResponse RedactAudioAdvanced(DlpAdvancedAudioRedactionRequest body = default(DlpAdvancedAudioRedactionRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Redact User Data in Audio File (Advanced)
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 34 configurable types of user data including health-related PHI in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, redacted segment timestamps, and optional rationale.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DlpAdvancedAudioRedactionResponse</returns>
+        ApiResponse<DlpAdvancedAudioRedactionResponse> RedactAudioAdvancedWithHttpInfo(DlpAdvancedAudioRedactionRequest body = default(DlpAdvancedAudioRedactionRequest), int operationIndex = 0);
+        /// <summary>
         /// Redact User Data in Document
         /// </summary>
         /// <remarks>
@@ -127,6 +173,56 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
     public interface IRedactApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Redact User Data in Audio File
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 23 configurable types of user data in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, and redacted segment timestamps.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DlpAudioRedactionResponse</returns>
+        System.Threading.Tasks.Task<DlpAudioRedactionResponse> RedactAudioAsync(DlpAudioRedactionRequest body = default(DlpAudioRedactionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Redact User Data in Audio File
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 23 configurable types of user data in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, and redacted segment timestamps.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DlpAudioRedactionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DlpAudioRedactionResponse>> RedactAudioWithHttpInfoAsync(DlpAudioRedactionRequest body = default(DlpAudioRedactionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Redact User Data in Audio File (Advanced)
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 34 configurable types of user data including health-related PHI in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, redacted segment timestamps, and optional rationale.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DlpAdvancedAudioRedactionResponse</returns>
+        System.Threading.Tasks.Task<DlpAdvancedAudioRedactionResponse> RedactAudioAdvancedAsync(DlpAdvancedAudioRedactionRequest body = default(DlpAdvancedAudioRedactionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Redact User Data in Audio File (Advanced)
+        /// </summary>
+        /// <remarks>
+        /// Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 34 configurable types of user data including health-related PHI in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, redacted segment timestamps, and optional rationale.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DlpAdvancedAudioRedactionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DlpAdvancedAudioRedactionResponse>> RedactAudioAdvancedWithHttpInfoAsync(DlpAdvancedAudioRedactionRequest body = default(DlpAdvancedAudioRedactionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Redact User Data in Document
         /// </summary>
@@ -345,6 +441,312 @@ namespace Cloudmersive.APIClient.NET.DLP.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Redact User Data in Audio File Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 23 configurable types of user data in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, and redacted segment timestamps.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DlpAudioRedactionResponse</returns>
+        public DlpAudioRedactionResponse RedactAudio(DlpAudioRedactionRequest body = default(DlpAudioRedactionRequest), int operationIndex = 0)
+        {
+            Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAudioRedactionResponse> localVarResponse = RedactAudioWithHttpInfo(body);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Redact User Data in Audio File Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 23 configurable types of user data in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, and redacted segment timestamps.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DlpAudioRedactionResponse</returns>
+        public Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAudioRedactionResponse> RedactAudioWithHttpInfo(DlpAudioRedactionRequest body = default(DlpAudioRedactionRequest), int operationIndex = 0)
+        {
+            Cloudmersive.APIClient.NET.DLP.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.DLP.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "RedactApi.RedactAudio";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (Apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Apikey", this.Configuration.GetApiKeyWithPrefix("Apikey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<DlpAudioRedactionResponse>("/dlp/redact/audio", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RedactAudio", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Redact User Data in Audio File Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 23 configurable types of user data in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, and redacted segment timestamps.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DlpAudioRedactionResponse</returns>
+        public async System.Threading.Tasks.Task<DlpAudioRedactionResponse> RedactAudioAsync(DlpAudioRedactionRequest body = default(DlpAudioRedactionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAudioRedactionResponse> localVarResponse = await RedactAudioWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Redact User Data in Audio File Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 23 configurable types of user data in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, and redacted segment timestamps.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DlpAudioRedactionResponse)</returns>
+        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAudioRedactionResponse>> RedactAudioWithHttpInfoAsync(DlpAudioRedactionRequest body = default(DlpAudioRedactionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Cloudmersive.APIClient.NET.DLP.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.DLP.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "RedactApi.RedactAudio";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (Apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Apikey", this.Configuration.GetApiKeyWithPrefix("Apikey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<DlpAudioRedactionResponse>("/dlp/redact/audio", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RedactAudio", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Redact User Data in Audio File (Advanced) Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 34 configurable types of user data including health-related PHI in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, redacted segment timestamps, and optional rationale.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DlpAdvancedAudioRedactionResponse</returns>
+        public DlpAdvancedAudioRedactionResponse RedactAudioAdvanced(DlpAdvancedAudioRedactionRequest body = default(DlpAdvancedAudioRedactionRequest), int operationIndex = 0)
+        {
+            Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAdvancedAudioRedactionResponse> localVarResponse = RedactAudioAdvancedWithHttpInfo(body);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Redact User Data in Audio File (Advanced) Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 34 configurable types of user data including health-related PHI in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, redacted segment timestamps, and optional rationale.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DlpAdvancedAudioRedactionResponse</returns>
+        public Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAdvancedAudioRedactionResponse> RedactAudioAdvancedWithHttpInfo(DlpAdvancedAudioRedactionRequest body = default(DlpAdvancedAudioRedactionRequest), int operationIndex = 0)
+        {
+            Cloudmersive.APIClient.NET.DLP.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.DLP.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "RedactApi.RedactAudioAdvanced";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (Apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Apikey", this.Configuration.GetApiKeyWithPrefix("Apikey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<DlpAdvancedAudioRedactionResponse>("/dlp/redact/audio/advanced", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RedactAudioAdvanced", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Redact User Data in Audio File (Advanced) Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 34 configurable types of user data including health-related PHI in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, redacted segment timestamps, and optional rationale.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DlpAdvancedAudioRedactionResponse</returns>
+        public async System.Threading.Tasks.Task<DlpAdvancedAudioRedactionResponse> RedactAudioAdvancedAsync(DlpAdvancedAudioRedactionRequest body = default(DlpAdvancedAudioRedactionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAdvancedAudioRedactionResponse> localVarResponse = await RedactAudioAdvancedWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Redact User Data in Audio File (Advanced) Transcribes an audio file (WAV, MP3, M4A, FLAC, OGG, WMA), detects 34 configurable types of user data including health-related PHI in the transcript, and redacts audio segments containing PII. Returns the redacted audio, redacted transcript, detection results, redacted segment timestamps, and optional rationale.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DLP.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DlpAdvancedAudioRedactionResponse)</returns>
+        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.DLP.Client.ApiResponse<DlpAdvancedAudioRedactionResponse>> RedactAudioAdvancedWithHttpInfoAsync(DlpAdvancedAudioRedactionRequest body = default(DlpAdvancedAudioRedactionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Cloudmersive.APIClient.NET.DLP.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.DLP.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Cloudmersive.APIClient.NET.DLP.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "RedactApi.RedactAudioAdvanced";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (Apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Apikey", this.Configuration.GetApiKeyWithPrefix("Apikey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<DlpAdvancedAudioRedactionResponse>("/dlp/redact/audio/advanced", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RedactAudioAdvanced", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

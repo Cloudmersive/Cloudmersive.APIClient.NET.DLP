@@ -38,6 +38,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         /// <param name="allowEmailAddress">Set to true to allow email addresses in the input text and not redact them..</param>
         /// <param name="allowPhoneNumber">Set to true to allow phone numbers in the input text and not redact them..</param>
         /// <param name="allowStreetAddress">Set to true to allow street addresses in the input text and not redact them..</param>
+        /// <param name="allowCity">Set to true to allow standalone city names (e.g. \&quot;San Francisco\&quot;) in the input text and not redact them. Applies to city names mentioned outside of a full street address..</param>
         /// <param name="allowPersonName">Set to true to allow person names in the input text and not redact them..</param>
         /// <param name="allowBirthDate">Set to true to allow birth dates in the input text and not redact them..</param>
         /// <param name="allowPassportNumber">Set to true to allow passport numbers in the input text and not redact them..</param>
@@ -59,6 +60,8 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         /// <param name="allowIpAddress">Set to true to allow IP addresses in the input text and not redact them..</param>
         /// <param name="allowMacAddress">Set to true to allow MAC addresses in the input text and not redact them..</param>
         /// <param name="allowHealthInsuranceMemberID">Set to true to allow health insurance member IDs in the input text and not redact them..</param>
+        /// <param name="allowMedicalRecordNumber">Set to true to allow medical record numbers in the input text and not redact them..</param>
+        /// <param name="allowBillingAccountNumber">Set to true to allow billing account numbers (e.g. provider/customer billing account IDs, distinct from bank account numbers) in the input text and not redact them..</param>
         /// <param name="allowHealthInjuryOrDisease">Set to true to allow references to injuries or diseases in the input text and not redact them..</param>
         /// <param name="allowHealthTypeOfTreatment">Set to true to allow references to types of medical treatment in the input text and not redact them..</param>
         /// <param name="allowHealthDateAndTimeOfTreatment">Set to true to allow dates and times of medical treatment in the input text and not redact them..</param>
@@ -69,15 +72,17 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         /// <param name="allowNamesOfRelatives">Set to true to allow names of relatives in the input text and not redact them..</param>
         /// <param name="allowHealthUniversalRecordLocator">Set to true to allow health universal record locators (URLs) in the input text and not redact them..</param>
         /// <param name="allowBiometrics">Set to true to allow biometric data references (e.g. fingerprints, retinal scans, voiceprints) in the input text and not redact them..</param>
-        /// <param name="redactionMode">Redaction mode: \&quot;Delete\&quot; to remove PII entirely, or \&quot;ReplaceWithAsterisk\&quot; to replace PII characters with asterisks (*)..</param>
+        /// <param name="redactionMode">Redaction mode: \&quot;SemanticTag\&quot; (default) replaces PII with a semantic tag in square brackets (e.g. [PHONE-NUMBER]), \&quot;Delete\&quot; removes PII entirely, or \&quot;ReplaceWithAsterisk\&quot; replaces PII characters with asterisks (*)..</param>
         /// <param name="provideAnalysisRationale">Set to true to include a natural language rationale explaining why each detection conclusion was formed..</param>
         /// <param name="customPolicyID">Apply a Custom Policy for DLP Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud.</param>
-        public DlpAdvancedRedactionRequest(string inputText = default(string), bool allowEmailAddress = default(bool), bool allowPhoneNumber = default(bool), bool allowStreetAddress = default(bool), bool allowPersonName = default(bool), bool allowBirthDate = default(bool), bool allowPassportNumber = default(bool), bool allowDriversLicense = default(bool), bool allowSocialSecurityNumber = default(bool), bool allowTaxpayerID = default(bool), bool allowCreditCardNumber = default(bool), bool allowCreditCardExpirationDate = default(bool), bool allowCreditCardVerificationCode = default(bool), bool allowBankAccountNumber = default(bool), bool allowIBAN = default(bool), bool allowHealthInsuranceNumber = default(bool), bool allowBearerToken = default(bool), bool allowHttpCookie = default(bool), bool allowPrivateKeys = default(bool), bool allowCredentials = default(bool), bool allowDeepWebUrls = default(bool), bool allowSourceCode = default(bool), bool allowIpAddress = default(bool), bool allowMacAddress = default(bool), bool allowHealthInsuranceMemberID = default(bool), bool allowHealthInjuryOrDisease = default(bool), bool allowHealthTypeOfTreatment = default(bool), bool allowHealthDateAndTimeOfTreatment = default(bool), bool allowHealthPlanBeneficiaryNumber = default(bool), bool allowHealthPaymentsMadeForTreatment = default(bool), bool allowVehicleID = default(bool), bool allowDeviceID = default(bool), bool allowNamesOfRelatives = default(bool), bool allowHealthUniversalRecordLocator = default(bool), bool allowBiometrics = default(bool), string redactionMode = default(string), bool provideAnalysisRationale = default(bool), string customPolicyID = default(string))
+        /// <param name="customFields">Optional list of caller-defined custom PII fields to detect and redact in addition  to the built-in categories. Each entry has a Title (used to derive the redaction  tag, e.g. \&quot;internal participant code\&quot; → [INTERNAL-PARTICIPANT-CODE]) and a  Description telling the redaction LLM what the field looks like. Default null..</param>
+        public DlpAdvancedRedactionRequest(string inputText = default(string), bool allowEmailAddress = default(bool), bool allowPhoneNumber = default(bool), bool allowStreetAddress = default(bool), bool allowCity = default(bool), bool allowPersonName = default(bool), bool allowBirthDate = default(bool), bool allowPassportNumber = default(bool), bool allowDriversLicense = default(bool), bool allowSocialSecurityNumber = default(bool), bool allowTaxpayerID = default(bool), bool allowCreditCardNumber = default(bool), bool allowCreditCardExpirationDate = default(bool), bool allowCreditCardVerificationCode = default(bool), bool allowBankAccountNumber = default(bool), bool allowIBAN = default(bool), bool allowHealthInsuranceNumber = default(bool), bool allowBearerToken = default(bool), bool allowHttpCookie = default(bool), bool allowPrivateKeys = default(bool), bool allowCredentials = default(bool), bool allowDeepWebUrls = default(bool), bool allowSourceCode = default(bool), bool allowIpAddress = default(bool), bool allowMacAddress = default(bool), bool allowHealthInsuranceMemberID = default(bool), bool allowMedicalRecordNumber = default(bool), bool allowBillingAccountNumber = default(bool), bool allowHealthInjuryOrDisease = default(bool), bool allowHealthTypeOfTreatment = default(bool), bool allowHealthDateAndTimeOfTreatment = default(bool), bool allowHealthPlanBeneficiaryNumber = default(bool), bool allowHealthPaymentsMadeForTreatment = default(bool), bool allowVehicleID = default(bool), bool allowDeviceID = default(bool), bool allowNamesOfRelatives = default(bool), bool allowHealthUniversalRecordLocator = default(bool), bool allowBiometrics = default(bool), string redactionMode = default(string), bool provideAnalysisRationale = default(bool), string customPolicyID = default(string), List<CustomPiiField> customFields = default(List<CustomPiiField>))
         {
             this.InputText = inputText;
             this.AllowEmailAddress = allowEmailAddress;
             this.AllowPhoneNumber = allowPhoneNumber;
             this.AllowStreetAddress = allowStreetAddress;
+            this.AllowCity = allowCity;
             this.AllowPersonName = allowPersonName;
             this.AllowBirthDate = allowBirthDate;
             this.AllowPassportNumber = allowPassportNumber;
@@ -99,6 +104,8 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
             this.AllowIpAddress = allowIpAddress;
             this.AllowMacAddress = allowMacAddress;
             this.AllowHealthInsuranceMemberID = allowHealthInsuranceMemberID;
+            this.AllowMedicalRecordNumber = allowMedicalRecordNumber;
+            this.AllowBillingAccountNumber = allowBillingAccountNumber;
             this.AllowHealthInjuryOrDisease = allowHealthInjuryOrDisease;
             this.AllowHealthTypeOfTreatment = allowHealthTypeOfTreatment;
             this.AllowHealthDateAndTimeOfTreatment = allowHealthDateAndTimeOfTreatment;
@@ -112,6 +119,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
             this.RedactionMode = redactionMode;
             this.ProvideAnalysisRationale = provideAnalysisRationale;
             this.CustomPolicyID = customPolicyID;
+            this.CustomFields = customFields;
         }
 
         /// <summary>
@@ -153,6 +161,16 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         */
         [DataMember(Name = "AllowStreetAddress", EmitDefaultValue = true)]
         public bool AllowStreetAddress { get; set; }
+
+        /// <summary>
+        /// Set to true to allow standalone city names (e.g. \&quot;San Francisco\&quot;) in the input text and not redact them. Applies to city names mentioned outside of a full street address.
+        /// </summary>
+        /// <value>Set to true to allow standalone city names (e.g. \&quot;San Francisco\&quot;) in the input text and not redact them. Applies to city names mentioned outside of a full street address.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "AllowCity", EmitDefaultValue = true)]
+        public bool AllowCity { get; set; }
 
         /// <summary>
         /// Set to true to allow person names in the input text and not redact them.
@@ -365,6 +383,26 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         public bool AllowHealthInsuranceMemberID { get; set; }
 
         /// <summary>
+        /// Set to true to allow medical record numbers in the input text and not redact them.
+        /// </summary>
+        /// <value>Set to true to allow medical record numbers in the input text and not redact them.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "AllowMedicalRecordNumber", EmitDefaultValue = true)]
+        public bool AllowMedicalRecordNumber { get; set; }
+
+        /// <summary>
+        /// Set to true to allow billing account numbers (e.g. provider/customer billing account IDs, distinct from bank account numbers) in the input text and not redact them.
+        /// </summary>
+        /// <value>Set to true to allow billing account numbers (e.g. provider/customer billing account IDs, distinct from bank account numbers) in the input text and not redact them.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "AllowBillingAccountNumber", EmitDefaultValue = true)]
+        public bool AllowBillingAccountNumber { get; set; }
+
+        /// <summary>
         /// Set to true to allow references to injuries or diseases in the input text and not redact them.
         /// </summary>
         /// <value>Set to true to allow references to injuries or diseases in the input text and not redact them.</value>
@@ -465,11 +503,11 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         public bool AllowBiometrics { get; set; }
 
         /// <summary>
-        /// Redaction mode: \&quot;Delete\&quot; to remove PII entirely, or \&quot;ReplaceWithAsterisk\&quot; to replace PII characters with asterisks (*).
+        /// Redaction mode: \&quot;SemanticTag\&quot; (default) replaces PII with a semantic tag in square brackets (e.g. [PHONE-NUMBER]), \&quot;Delete\&quot; removes PII entirely, or \&quot;ReplaceWithAsterisk\&quot; replaces PII characters with asterisks (*).
         /// </summary>
-        /// <value>Redaction mode: \&quot;Delete\&quot; to remove PII entirely, or \&quot;ReplaceWithAsterisk\&quot; to replace PII characters with asterisks (*).</value>
+        /// <value>Redaction mode: \&quot;SemanticTag\&quot; (default) replaces PII with a semantic tag in square brackets (e.g. [PHONE-NUMBER]), \&quot;Delete\&quot; removes PII entirely, or \&quot;ReplaceWithAsterisk\&quot; replaces PII characters with asterisks (*).</value>
         /*
-        <example>ReplaceWithAsterisk</example>
+        <example>SemanticTag</example>
         */
         [DataMember(Name = "RedactionMode", EmitDefaultValue = false)]
         public string RedactionMode { get; set; }
@@ -492,6 +530,13 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         public string CustomPolicyID { get; set; }
 
         /// <summary>
+        /// Optional list of caller-defined custom PII fields to detect and redact in addition  to the built-in categories. Each entry has a Title (used to derive the redaction  tag, e.g. \&quot;internal participant code\&quot; → [INTERNAL-PARTICIPANT-CODE]) and a  Description telling the redaction LLM what the field looks like. Default null.
+        /// </summary>
+        /// <value>Optional list of caller-defined custom PII fields to detect and redact in addition  to the built-in categories. Each entry has a Title (used to derive the redaction  tag, e.g. \&quot;internal participant code\&quot; → [INTERNAL-PARTICIPANT-CODE]) and a  Description telling the redaction LLM what the field looks like. Default null.</value>
+        [DataMember(Name = "CustomFields", EmitDefaultValue = false)]
+        public List<CustomPiiField> CustomFields { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -503,6 +548,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
             sb.Append("  AllowEmailAddress: ").Append(AllowEmailAddress).Append("\n");
             sb.Append("  AllowPhoneNumber: ").Append(AllowPhoneNumber).Append("\n");
             sb.Append("  AllowStreetAddress: ").Append(AllowStreetAddress).Append("\n");
+            sb.Append("  AllowCity: ").Append(AllowCity).Append("\n");
             sb.Append("  AllowPersonName: ").Append(AllowPersonName).Append("\n");
             sb.Append("  AllowBirthDate: ").Append(AllowBirthDate).Append("\n");
             sb.Append("  AllowPassportNumber: ").Append(AllowPassportNumber).Append("\n");
@@ -524,6 +570,8 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
             sb.Append("  AllowIpAddress: ").Append(AllowIpAddress).Append("\n");
             sb.Append("  AllowMacAddress: ").Append(AllowMacAddress).Append("\n");
             sb.Append("  AllowHealthInsuranceMemberID: ").Append(AllowHealthInsuranceMemberID).Append("\n");
+            sb.Append("  AllowMedicalRecordNumber: ").Append(AllowMedicalRecordNumber).Append("\n");
+            sb.Append("  AllowBillingAccountNumber: ").Append(AllowBillingAccountNumber).Append("\n");
             sb.Append("  AllowHealthInjuryOrDisease: ").Append(AllowHealthInjuryOrDisease).Append("\n");
             sb.Append("  AllowHealthTypeOfTreatment: ").Append(AllowHealthTypeOfTreatment).Append("\n");
             sb.Append("  AllowHealthDateAndTimeOfTreatment: ").Append(AllowHealthDateAndTimeOfTreatment).Append("\n");
@@ -537,6 +585,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
             sb.Append("  RedactionMode: ").Append(RedactionMode).Append("\n");
             sb.Append("  ProvideAnalysisRationale: ").Append(ProvideAnalysisRationale).Append("\n");
             sb.Append("  CustomPolicyID: ").Append(CustomPolicyID).Append("\n");
+            sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

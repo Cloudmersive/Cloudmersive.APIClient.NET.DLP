@@ -58,7 +58,7 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         /// <param name="allowSourceCode">Set to true to allow source code in the input text and not redact it..</param>
         /// <param name="allowIpAddress">Set to true to allow IP addresses in the input text and not redact them..</param>
         /// <param name="allowMacAddress">Set to true to allow MAC addresses in the input text and not redact them..</param>
-        /// <param name="redactionMode">Redaction mode: \&quot;Delete\&quot; to remove PII entirely, or \&quot;ReplaceWithAsterisk\&quot; to replace PII characters with asterisks (*)..</param>
+        /// <param name="redactionMode">Redaction mode: \&quot;SemanticTag\&quot; (default) replaces PII with a semantic tag in square brackets (e.g. [PHONE-NUMBER]), \&quot;Delete\&quot; removes PII entirely, or \&quot;ReplaceWithAsterisk\&quot; replaces PII characters with asterisks (*)..</param>
         public DlpRedactionRequest(string inputText = default(string), bool allowEmailAddress = default(bool), bool allowPhoneNumber = default(bool), bool allowStreetAddress = default(bool), bool allowPersonName = default(bool), bool allowBirthDate = default(bool), bool allowPassportNumber = default(bool), bool allowDriversLicense = default(bool), bool allowSocialSecurityNumber = default(bool), bool allowTaxpayerID = default(bool), bool allowCreditCardNumber = default(bool), bool allowCreditCardExpirationDate = default(bool), bool allowCreditCardVerificationCode = default(bool), bool allowBankAccountNumber = default(bool), bool allowIBAN = default(bool), bool allowHealthInsuranceNumber = default(bool), bool allowBearerToken = default(bool), bool allowHttpCookie = default(bool), bool allowPrivateKeys = default(bool), bool allowCredentials = default(bool), bool allowDeepWebUrls = default(bool), bool allowSourceCode = default(bool), bool allowIpAddress = default(bool), bool allowMacAddress = default(bool), string redactionMode = default(string))
         {
             this.InputText = inputText;
@@ -329,11 +329,11 @@ namespace Cloudmersive.APIClient.NET.DLP.Model
         public bool AllowMacAddress { get; set; }
 
         /// <summary>
-        /// Redaction mode: \&quot;Delete\&quot; to remove PII entirely, or \&quot;ReplaceWithAsterisk\&quot; to replace PII characters with asterisks (*).
+        /// Redaction mode: \&quot;SemanticTag\&quot; (default) replaces PII with a semantic tag in square brackets (e.g. [PHONE-NUMBER]), \&quot;Delete\&quot; removes PII entirely, or \&quot;ReplaceWithAsterisk\&quot; replaces PII characters with asterisks (*).
         /// </summary>
-        /// <value>Redaction mode: \&quot;Delete\&quot; to remove PII entirely, or \&quot;ReplaceWithAsterisk\&quot; to replace PII characters with asterisks (*).</value>
+        /// <value>Redaction mode: \&quot;SemanticTag\&quot; (default) replaces PII with a semantic tag in square brackets (e.g. [PHONE-NUMBER]), \&quot;Delete\&quot; removes PII entirely, or \&quot;ReplaceWithAsterisk\&quot; replaces PII characters with asterisks (*).</value>
         /*
-        <example>ReplaceWithAsterisk</example>
+        <example>SemanticTag</example>
         */
         [DataMember(Name = "RedactionMode", EmitDefaultValue = false)]
         public string RedactionMode { get; set; }
